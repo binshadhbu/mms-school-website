@@ -13,9 +13,13 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+// export const metadata: Metadata =import { FloatingNav } from "@/components/ui/FloatingNav";
+import Grid from "@/components/ui/Grid";
+import { FaHome } from "react-icons/fa";
+
 export const metadata: Metadata = {
   title: "MMS Educational campus",
-  description: "MMS Educational campus official webstite",
+  description: "MMS Educational Campus official webstite",
 };
 
 export default function RootLayout({
@@ -30,7 +34,7 @@ export default function RootLayout({
       >
         <ThemeProvider
           attribute="class"
-          defaultTheme="dark"
+          defaultTheme="light"
           enableSystem
           disableTransitionOnChange
         >
