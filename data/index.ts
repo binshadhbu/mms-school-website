@@ -1,7 +1,7 @@
 export const navItems = [
-  { tag: "KG", href: "/programmes/kindergarten", description: "Includes LKG and UKG, focusing on foundational skills and early childhood development." },
-  { tag: "Primary", href: "/programmes/primary", description: "Includes class 1 to 7, covering basic subjects and fostering a love for learning." },
-  { tag: "High School", href: "/programmes/highschool", description: "Includes class 8 to 10, preparing students for higher education and future careers." },
+  { tag: "KG", href: "/programmes/kindergarten", description: "Includes LKG and UKG, focusing on foundational skills and early childhood development." , src:"/public/hs/hs.jpeg" },
+  { tag: "Primary", href: "/programmes/primary", description: "Includes class 1 to 7, covering basic subjects and fostering a love for learning."  , src:"/public/hs/hs.jpeg" },
+  { tag: "High School", href: "/programmes/highschool", description: "Includes class 8 to 10, preparing students for higher education and future careers."  , src:"/public/hs/hs.jpeg"},
 ];
 
 export const activities = [
@@ -31,7 +31,7 @@ export const AboutItems = [
   { href: "/mission", label: "Mission and Vision" },
   { href: "/history", label: "History" },
   { href: "/team", label: "Team" },
-  { href: "/enterprise", label: "Enterprise" },
+  
 ];
 
 export const staffMembers = [
@@ -71,3 +71,9 @@ export const contactInfo = [
   { type: "Email", value: "info@school.com" },
   { type: "Address", value: "123 School St, Education City, Country" },
 ];
+
+export const Images=[
+  {src:"/public/common/hero1.jpeg", headline:"Excellence in Education"},
+  {src:"/public/common/hero2.jpeg", headline:"Nurturing Young Minds"},
+  {src:"/public/common/hero3.jpeg", headline:"Innovative Learning Spaces"}
+]
