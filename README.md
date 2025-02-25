@@ -1,6 +1,6 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-# Dont push to main branch push to naureen-mms-school branch only after make sure it works make pull request 
+# Dont push to the main branch push to naureen-mms-school branch only after making sure it works make a pull request after solving the merge conflicts
 
 First, run the development server:
 
