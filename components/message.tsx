@@ -1,9 +1,11 @@
+import TestimonialCard from "./cards/Testimonial";
 import { HoverEffect } from "./ui/card-hover-effect";
 
 export function Message() {
   return (
-    <div className="max-w-5xl mx-auto px-8">
-      <HoverEffect items={projects} />
+    <div className="px-8 mb-96">
+      {/* <HoverEffect items={projects} /> */}
+      <TestimonialCard />
     </div>
   );
 }
@@ -26,5 +28,5 @@ export const projects = [
       "A multinational technology company that specializes in Internet-related services and products.",
     link: "https://google.com",
   },
- 
+
 ];
