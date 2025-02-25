@@ -4,7 +4,7 @@ import { HoveredLink, Menu, MenuItem, ProductItem } from "./ui/navbar-menu";
 import { cn } from "@/lib/utils";
 import { AboutItems, activities, navItems } from "@/data";
 import Link from "next/link";
-import Image from "next/image";
+;
 
 export function NavbarDemo() {
     return (

@@ -1,5 +1,4 @@
 import TestimonialCard from "./cards/Testimonial";
-import { HoverEffect } from "./ui/card-hover-effect";
 
 export function Message() {
   return (

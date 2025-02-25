@@ -2,7 +2,6 @@
 "use client"
 import 'flowbite';
 import { Carousel } from "flowbite-react";
-import Image from 'next/image';
 
 
 export function Hero() {

@@ -1,6 +1,6 @@
 "use client";
 
-import { NotebookText, Lock, Search, Settings, Sparkles,UserCheck,GraduationCap,BookOpenText,Landmark } from "lucide-react";
+import { Sparkles,UserCheck,GraduationCap,BookOpenText,Landmark } from "lucide-react";
 import { GlowingEffect } from "@/components/ui/glowing-effect";
 
 export function Status() {
