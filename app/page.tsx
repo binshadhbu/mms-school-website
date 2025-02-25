@@ -1,11 +1,16 @@
 
+import { NavbarDemo } from "@/components/Navbar";
+import Explandable from "@/components/carousel/expandable";
+import { Message } from "@/components/message";
+import { Status } from "@/components/status";
 
 export default function Home() {
-  return (
-    <main className="relative bg-gray-200 flex justify-center items-center flex-col overflow-hidden mx-auto sm:px-10 px-5">
-      <div className="max-w-7xl w-full">
-        <h1>Home</h1>
-      </div>
+  return ( 
+    <main className="relative bg-white flex flex-col justify-center items-center overflow-hidden mx-auto sm:px-10 px-5">
+      <NavbarDemo />
+      <Explandable className="m-20" />
+      <Status />
+      <Message />
     </main>
   );
 }
