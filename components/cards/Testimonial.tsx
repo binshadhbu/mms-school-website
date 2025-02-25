@@ -1,9 +1,6 @@
 'use client';
 import React from 'react'
-import { FaStar } from "react-icons/fa";
 import { motion } from "framer-motion";
-import { Link } from 'lucide-react';
-import {Card, CardHeader, CardFooter, Image, Button} from 'components/ui';
 
 const Testimonial = () => {
   const testimonials = [
