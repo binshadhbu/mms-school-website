@@ -51,17 +51,17 @@ const List = ({ item, className, index, activeItem, ...props }: ImageProps) => {
 const items = [
   {
     image:
-      "../../public/common/hero3.jpeg",
+      "/common/hero3.jpeg",
     title: "Mountains",
   },
   {
     image:
-      "../../public/common/hero2.jpeg",
+      "/common/hero2.jpeg",
     title: "Great Wall of China",
   },
   {
     image:
-      "../../public/common/hero1.jpeg",
+      "/common/hero1.jpeg",
     title: "Texture & Patterns",
   },
 ];
