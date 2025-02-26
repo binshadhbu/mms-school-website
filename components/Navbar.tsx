@@ -32,7 +32,7 @@ function Navbar({ className }: { className?: string }) {
                 <MenuItem setActive={setActive} active={active} item="Programs">
                     <div className="  text-sm grid grid-cols-2 gap-10 p-4  ">
                         {navItems.map((item, index) => (
-                            <ProductItem title={item.tag} href={item.href} src={item.src} description={item.description} key={index} />
+                            <ProductItem title={item.tag} href={item.href}  description={item.description} key={index} />
                         ))}
 
                     </div>
