@@ -8,7 +8,7 @@ import { Menu as MenuIcon, X } from "lucide-react";
 
 export function NavbarDemo() {
   return (
-    <div className="relative w-full flex items-end text-gray-600 font-bold">
+    <div className="relative w-full flex items-end text-gray-600 font-bold pt-20 py-10">
       <Navbar />
     </div>
   );
