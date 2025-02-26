@@ -36,7 +36,7 @@ const Testimonial = () => {
 
   return (
     <div className="space-y-6 gap-4 flex flex-wrap justify-around">
-      {testimonials.map((testimonial,index) => (
+      {testimonials.map((testimonial) => (
         // <Link href={testimonial.link} key={index}>
         <motion.div
           key={testimonial.name}
