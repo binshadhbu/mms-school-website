@@ -1,5 +1,6 @@
 import Heading from "@/components/Header/Heading";
 import { NavbarDemo } from "@/components/Navbar"
+import Achievements from "@/components/cards/Achievements";
 import Explandable from "@/components/carousel/expandable"
 import { Message } from "@/components/message";
 import { Status } from "@/components/status";
@@ -15,6 +16,7 @@ export default function Home() {
       <Heading title="Our Leaders" />
       <Message  />
       <Heading title="Achievements" />
+      <Achievements />
     </main>
   );
 }
