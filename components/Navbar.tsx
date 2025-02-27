@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
-import { HoveredLink, Menu, MenuItem, ProductItem } from "./ui/navbar-menu";
-import { cn } from "@/lib/utils";
+import { HoveredLink,  MenuItem, ProductItem } from "./ui/navbar-menu";
+// import { cn } from "@/lib/utils";
 import { AboutItems, activities, navItems } from "@/data";
 import Link from "next/link";
 import { Menu as MenuIcon, X } from "lucide-react";
