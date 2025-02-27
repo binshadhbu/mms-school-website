@@ -2,7 +2,7 @@ import TestimonialCard from "./cards/Testimonial";
 
 export function Message() {
   return (
-    <div className="px-8 mb-96">
+    <div className="px-8 mb-10">
       {/* <HoverEffect items={projects} /> */}
       <TestimonialCard />
     </div>
