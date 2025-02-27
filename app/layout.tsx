@@ -13,9 +13,7 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-// export const metadata: Metadata =import { FloatingNav } from "@/components/ui/FloatingNav";
-import Grid from "@/components/ui/Grid";
-import { FaHome } from "react-icons/fa";
+
 
 export const metadata: Metadata = {
   title: "MMS Educational campus",
