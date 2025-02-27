@@ -3,6 +3,7 @@ import { NavbarDemo } from "@/components/Navbar"
 import Explandable from "@/components/carousel/expandable"
 import { Message } from "@/components/message";
 import { Status } from "@/components/status";
+import Results  from "@/components/cards/Results";
 
 
 export default function Home() {
@@ -15,6 +16,12 @@ export default function Home() {
       <Heading title="Our Leaders" />
       <Message  />
       <Heading title="Achievements" />
+      <Results  />
+
+     
+
     </main>
   );
 }
+
+
