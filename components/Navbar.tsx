@@ -8,7 +8,7 @@ import { Menu as MenuIcon, X } from "lucide-react";
 
 export function NavbarDemo() {
   return (
-    <div className="relative w-full flex items-end text-gray-600 font-bold pt-20 py-10">
+    <div className="relative w-full flex items-end text-white font-bold mt-20 ">
       <Navbar />
     </div>
   );
@@ -19,7 +19,7 @@ function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="fixed w-full bg-white dark:bg-black shadow-md px-6 py-4 z-50">
+    <nav className="fixed w-full bg-gray-950 dark:bg-black shadow-md px-6 py-4 z-50">
       <div className="flex justify-between items-center max-w-7xl mx-auto">
         {/* Logo */}
         <Link href="/" className="text-2xl font-bold text-gray-900 dark:text-white">
@@ -106,14 +106,14 @@ function Navbar() {
 
 /* Desktop Nav Links */
 const NavLink = ({ href, children }: { href: string; children: React.ReactNode }) => (
-  <Link href={href} className="text-gray-700 dark:text-white hover:text-gray-900">
+  <Link href={href} className="text-white dark:text-white hover:text-gray-900">
     {children}
   </Link>
 );
 
 /* Mobile Nav Links */
 const MobileNavLink = ({ href, setIsOpen, children }: { href: string; setIsOpen: any; children: React.ReactNode }) => (
-  <Link href={href} onClick={() => setIsOpen(false)} className="block py-2 text-gray-700 dark:text-white text-center">
+  <Link href={href} onClick={() => setIsOpen(false)} className="block py-2 text-white dark:text-white text-center">
     {children}
   </Link>
 );

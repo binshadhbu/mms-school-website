@@ -6,8 +6,8 @@ import { Facebook, Instagram, Twitter, Mail, Phone, MapPin } from "lucide-react"
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-900 text-white py-10 mt-20">
-      <div className="container mx-auto px-6 lg:px-20">
+    <footer className="relative bottom-0 w-full bg-gray-900 text-white py-10 mt-20">
+      <div className="container  lg:px-20">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Contact Section */}
           <div>
@@ -54,6 +54,8 @@ const Footer = () => {
         </div>
       </div>
     </footer>
+
+
   );
 };
 
