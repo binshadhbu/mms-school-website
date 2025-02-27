@@ -2,6 +2,7 @@ import { NavbarDemo } from "@/components/Navbar";
 import Explandable from "@/components/carousel/expandable";
 import { Message } from "@/components/message";
 import { Status } from "@/components/status";
+import Footer from "@/components/ui/footer";
 
 export default function Home() {
   return ( 
@@ -11,6 +12,7 @@ export default function Home() {
       <Explandable className="m-20" />
       <Status />
       <Message />
+      <Footer />
     </main>
   );
 }
