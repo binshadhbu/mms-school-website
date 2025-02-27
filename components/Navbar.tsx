@@ -1,7 +1,7 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 import React, { useState } from "react";
 import { HoveredLink,  MenuItem, ProductItem } from "./ui/navbar-menu";
-// import { cn } from "@/lib/utils";
 import { AboutItems, activities, navItems } from "@/data";
 import Link from "next/link";
 import { Menu as MenuIcon, X } from "lucide-react";
@@ -35,7 +35,7 @@ function Navbar() {
           <MenuItem setActive={setActive} active={active} item="Programs">
             <div className="text-sm grid grid-cols-2 gap-10 p-4">
               {navItems.map((item, index) => (
-                <ProductItem title={item.tag} href={item.href} src={item.src} description={item.description} key={index} />
+                <ProductItem title={item.tag} href={item.href}  description={item.description} key={index} />
               ))}
             </div>
           </MenuItem>
