@@ -14,7 +14,6 @@ const geistMono = Geist_Mono({
 });
 
 
-
 export const metadata: Metadata = {
   title: "MMS Educational campus",
   description: "MMS Educational Campus official webstite",
