@@ -1,16 +1,17 @@
 import Heading from "@/components/Header/Heading";
-import { NavbarDemo } from "@/components/Navbar"
+import NavbarList from "@/components/Navbar"
 import { Message } from "@/components/message";
 import { Status } from "@/components/status";
 import Results  from "@/components/cards/Results";
 import Footer from "@/components/ui/footer";
 import { Hero } from "@/components/Hero";
+import Navbar from "@/components/Navbar";
 
 
 export default function Home() {
   return (
     <main className="relative bg-white flex flex-col   overflow-hidden   ">
-      <NavbarDemo />
+      <Navbar />
       <Hero />
       <Heading title="About Us"  />
       <Status />
