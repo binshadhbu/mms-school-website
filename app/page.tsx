@@ -7,6 +7,7 @@ import { Status } from "@/components/status";
 export default function Home() {
   return (
     <main className="relative bg-white flex flex-col   overflow-hidden  sm:px-10 px-5">
+      <h1> "Hello" </h1>
       <NavbarDemo />
       <Explandable className="m-20" />
       <Heading title="About Us" />
