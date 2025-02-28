@@ -29,7 +29,8 @@ export default function Navbar() {
             href="/"
             className=" block cursor-pointer py-1.5 text-white font-extrabold text-2xl"
           >
-            <h1>MMS Educational campus </h1>
+            <h1 className="sm:hidden block">MMS</h1>
+            <h1 className="hidden sm:block">MMS Educational campus </h1>
             {/* <Image src="/logo.svg" alt="Logo" width={40} height={40} /> */}
           </Link>
 
