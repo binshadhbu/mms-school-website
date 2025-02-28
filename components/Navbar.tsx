@@ -33,9 +33,9 @@ export default function Navbar() {
             {/* <Image src="/logo.svg" alt="Logo" width={40} height={40} /> */}
           </Link>
 
-          <div className="lg:hidden">
+          <div className="lg:hidden  text-gray-100">
             <button
-              className="relative ml-auto h-6 text-gray-200 hover:text-white hover:font-extrabold hover:scale-110  max-h-[40px] w-6 max-w-[40px] select-none rounded-lg text-center align-middle text-xs font-medium uppercase text-inherit transition-all hover:bg-transparent focus:bg-transparent active:bg-transparent disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+              className="relative ml-auto  h-6 text-gray-200 hover:text-white hover:font-extrabold hover:scale-110  max-h-[40px] w-6 max-w-[40px] select-none rounded-lg text-center align-middle text-xs font-medium uppercase text-inherit transition-all hover:bg-transparent focus:bg-transparent active:bg-transparent disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
               onClick={toggleMobileMenu}
               type="button"
             >
@@ -67,7 +67,7 @@ export default function Navbar() {
                 href="/"
                 className="cursor-pointer text-white font-extrabold text-xl pt-4 ps-4"
               >
-                MMS Educational Campus
+                MMS 
               </Link>
               <button
                 onClick={toggleMobileMenu}
