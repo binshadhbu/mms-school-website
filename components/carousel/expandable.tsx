@@ -1,6 +1,6 @@
+/* eslint-disable @next/next/no-img-element */
 'use client';
 import { HTMLAttributes, useEffect, useState } from "react";
-
 import WaveReveal from "../text/wave-reveal";
 import { cn } from "@/lib/utils";
 

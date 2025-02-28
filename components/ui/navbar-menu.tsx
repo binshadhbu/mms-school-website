@@ -2,7 +2,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import Image from "next/image";
+
 
 const transition = {
   type: "spring",
@@ -81,12 +81,12 @@ export const ProductItem = ({
   title,
   description,
   href,
-  src,
+  
 }: {
   title: string;
   description: string;
   href: string;
-  src: string;
+  
 }) => {
   return (
     <Link href={href} className="flex space-x-2">
@@ -109,6 +109,7 @@ export const ProductItem = ({
   );
 };
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const HoveredLink = ({ children, ...rest }: any) => {
   return (
     <Link

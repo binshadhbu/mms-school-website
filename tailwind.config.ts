@@ -1,8 +1,9 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import type { Config } from "tailwindcss";
 
 import svgToDataUri from "mini-svg-data-uri";
 
-import colors from "tailwindcss/colors";
+// import colors from "tailwindcss/colors";
 import { default as flattenColorPalette } from "tailwindcss/lib/util/flattenColorPalette";
 
 const config = {
@@ -174,10 +175,12 @@ const config = {
   		}
   	}
   },
-  plugins: [
-    require("tailwindcss-animate"),
-    addVariablesForColors,
-    function ({ matchUtilities, theme }: any) {
+  
+  plugins: [addVariablesForColors,
+    // require("tailwindcss-animate"),
+    // addVariablesForColors,
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    function ({ matchUtilities }: any) {
       matchUtilities(
         {
           "bg-grid": (value: any) => ({
@@ -196,20 +199,21 @@ const config = {
             )}")`,
           }),
         },
-        { values: flattenColorPalette(theme("backgroundColor")), type: "color" }
+        // { values: flattenColorPalette(theme("backgroundColor")), type: "color" }
       );
     },
   ],
 } satisfies Config;
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 function addVariablesForColors({ addBase, theme }: any) {
-  let allColors = flattenColorPalette(theme("colors"));
-  let newVars = Object.fromEntries(
-    Object.entries(allColors).map(([key, val]) => [`--${key}`, val])
+  const  allColors = flattenColorPalette(theme("colors"));
+  const newVars = Object.fromEntries(
+	Object.entries(allColors).map(([key, val]) => [`--${key}`, val])
   );
 
   addBase({
-    ":root": newVars,
+	":root": newVars,
   });
 }
 
