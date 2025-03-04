@@ -13,7 +13,6 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-// export const metadata: Metadata =import { FloatingNav } from "@/components/ui/FloatingNav";
 
 export const metadata: Metadata = {
   title: "MMS Educational campus",
