@@ -4,7 +4,7 @@ const About = () => {
   return (
     <div className="bg-gray-100">
 
-      <section className="bg-blue-600 text-white text-center py-20">
+      <section className="bg-gray-600 text-white text-center py-20">
         <h1 className="text-4xl font-bold">About Our School</h1>
         <p className="mt-4 text-lg">A place of excellence in education and values</p>
       </section>
@@ -32,7 +32,7 @@ const About = () => {
       <section className="bg-gray-200 py-16 px-6">
         <h2 className="text-3xl font-semibold text-center mb-10">Our History</h2>
         <div className="max-w-4xl mx-auto">
-          <ul className="border-l-4 border-blue-600 pl-6">
+          <ul className="border-l-4 border-gray-600 pl-6">
             <li className="mb-6">
               <span className="block font-bold">[Year]</span>
               <p className="text-gray-700">[Placeholder for school history event]</p>
@@ -97,12 +97,26 @@ const About = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="bg-blue-600 text-white text-center py-16">
-        <h2 className="text-3xl font-semibold">Join Our Community</h2>
-        <p className="mt-4 text-lg">Be a part of our journey to excellence.</p>
-        <button className="mt-6 bg-white text-blue-600 px-6 py-3 rounded-lg font-bold">
-          Contact Us
-        </button>
+      <section className="bg-gray-600 text-white text-center py-16">
+        <h2 className="text-3xl font-semibold">Contact Us</h2>
+        <p className="mt-4 text-lg">Placeholder for contact Info</p>
+        <div className="max-w-4xl mx-auto mt-6 grid md:grid-cols-2 gap-8">
+          {/* School Timings */}
+          <div className="bg-gray-900 p-6 shadow-lg rounded-lg">
+            <h3 className="text-xl font-bold">School Timings</h3>
+            <p className="mt-2 text-gray-400">Monday - Friday: [8:00 AM - 3:00 PM]</p>
+            <p className="text-gray-400">Saturday: [9:00 AM - 1:00 PM]</p>
+            <p className="text-gray-400">Sunday: Closed</p>
+        </div>
+        {/* Office Timings */}
+        <div className="bg-gray-900 p-6 shadow-lg rounded-lg">
+            <h3 className="text-xl font-bold">Office Timings</h3>
+            <p className="mt-2 text-gray-400">Monday - Friday: [9:00 AM - 5:00 PM]</p>
+            <p className="text-gray-400">Saturday: [10:00 AM - 2:00 PM]</p>
+            <p className="text-gray-400">Sunday: Closed</p>
+          </div>
+        </div>
+        
       </section>
     </div>
   );
