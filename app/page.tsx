@@ -11,7 +11,7 @@ import Navbar from "@/components/Navbar";
 export default function Home() {
   return (
     <main className="relative bg-white flex flex-col   overflow-hidden   ">
-      <Navbar />
+      
       <Hero />
       <Heading title="About Us"  />
       <Status />
@@ -19,7 +19,6 @@ export default function Home() {
       <Message  />
       <Heading title="Achievements" />
       <Results  />
-      <Footer/>
 
     </main>
   );
