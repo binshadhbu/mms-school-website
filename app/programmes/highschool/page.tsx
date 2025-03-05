@@ -1,9 +1,9 @@
-import Hero from './Hero'
+import Hero from '../common/Hero'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/ui/footer'
 import React from 'react'
 import { FaBook, FaFlask, FaLaptop, FaBasketballBall, FaMusic, FaHospital } from "react-icons/fa";
-import Winners from './Winners';
+import Winners from '../common/Winners';
 
 
 const facilities = [
