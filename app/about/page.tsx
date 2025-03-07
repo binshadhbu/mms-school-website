@@ -12,12 +12,12 @@ const About = () => {
       </section>
 
       {/* Mission, Vision, Values */}
-      <section className="max-w-6xl mx-auto py-16 px-6 ">
+      <section className=" mx-auto py-16 px-6  ">
         <h2 className="text-3xl font-semibold text-center mb-10">
           Mission, Vision & Values
         </h2>
         <div className="grid md:grid-cols-3 gap-8 ">
-          <div className="bg-white p-6 shadow-xl rounded-xl ">
+          <div className="bg-white p-6 shadow-xl rounded-xl">
             <h3 className="text-xl font-bold">Mission</h3>
             <p className="mt-2 text-gray-700">
               Our mission at MMS UPS Educational Campus is to provide a holistic

@@ -3,12 +3,16 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+import { HoveredLink, Menu, MenuItem, ProductItem } from "./ui/navbar-menu";
+import { cn } from "@/lib/utils";
 
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
+
+  const [active, setActive] = useState<string | null>(null);
 
   // Navigation items array
   const navItems = [
@@ -17,7 +21,7 @@ export default function Navbar() {
     { name: "Activities", href: "/activities" },
     { name: "Events", href: "/events" },
     { name: "Gallery", href: "/gallery" },
-    { name: "Achievements", href: "/achievements" },
+    // { name: "Achievements", href: "/achievements" },
     { name: "Team", href: "/team" }
   ];
 
@@ -68,7 +72,7 @@ export default function Navbar() {
                 href="/"
                 className="cursor-pointer text-white font-extrabold text-xl pt-4 ps-4"
               >
-                MMS 
+                MMS
               </Link>
               <button
                 onClick={toggleMobileMenu}
@@ -100,7 +104,6 @@ export default function Navbar() {
                   </Link>
                 </li>
               ))}
-
             </ul>
           </div>
 
