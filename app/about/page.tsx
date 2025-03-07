@@ -67,15 +67,15 @@ const About = () => {
         </h2>
         <div className="grid md:grid-cols-2 gap-8">
           <div className="bg-white p-6 shadow-lg rounded-lg">
-            <h3 className="text-xl font-bold">[Parent's Name]</h3>
+            <h3 className="text-xl font-bold">[Parent&aposs Name]</h3>
             <p className="text-gray-700">
-              "[Testimonial or involvement details]"
+              Testimonial or involvement details
             </p>
           </div>
           <div className="bg-white p-6 shadow-lg rounded-lg">
-            <h3 className="text-xl font-bold">[Parent's Name]</h3>
+            <h3 className="text-xl font-bold">[Parent&aposs Name]</h3>
             <p className="text-gray-700">
-              "[Testimonial or involvement details]"
+              Testimonial or involvement details
             </p>
           </div>
         </div>
