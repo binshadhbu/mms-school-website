@@ -4,20 +4,26 @@ import Footer from '@/components/ui/footer'
 import React from 'react'
 import { FaBook, FaFlask, FaLaptop, FaBasketballBall, FaMusic, FaHospital } from "react-icons/fa";
 import Winners from '../common/Winners';
-
-
-const facilities = [
-    { name: "Library", icon: <FaBook className="text-blue-500 text-3xl" /> },
-    { name: "Science Labs", icon: <FaFlask className="text-green-500 text-3xl" /> },
-    { name: "Computer Labs", icon: <FaLaptop className="text-gray-500 text-3xl" /> },
-    { name: "Sports Complex", icon: <FaBasketballBall className="text-orange-500 text-3xl" /> },
-    { name: "Bus service", icon: <FaMusic className="text-purple-500 text-3xl" /> },
-    { name: "Medical Room", icon: <FaHospital className="text-red-500 text-3xl" /> },
-];
-
+import { full_APlus } from '@/types/frontend';
+import { useState,useEffect } from 'react';
 
 
 const page = () => {
+
+    const facilities = [
+        { name: "Library", icon: <FaBook className="text-blue-500 text-3xl" /> },
+        { name: "Science Labs", icon: <FaFlask className="text-green-500 text-3xl" /> },
+        { name: "Computer Labs", icon: <FaLaptop className="text-gray-500 text-3xl" /> },
+        { name: "Sports Complex", icon: <FaBasketballBall className="text-orange-500 text-3xl" /> },
+        { name: "Bus service", icon: <FaMusic className="text-purple-500 text-3xl" /> },
+        { name: "Medical Room", icon: <FaHospital className="text-red-500 text-3xl" /> },
+    ];
+
+    const [full_APlus, setFull_APlus] = useState<full_APlus>([]);
+
+    
+
+
     return (
         <div>
             <Hero />
