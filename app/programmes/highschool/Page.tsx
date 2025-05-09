@@ -1,7 +1,8 @@
 import Hero from '../common/Hero'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/ui/footer'
-import React from 'react'
+import { sslc_List } from '@/type/frontend'
+import React, { useEffect, useState } from 'react'
 import { FaBook, FaFlask, FaLaptop, FaBasketballBall, FaMusic, FaHospital } from "react-icons/fa";
 import Winners from '../common/Winners';
 
@@ -17,7 +18,9 @@ const facilities = [
 
 
 
-const page = () => {
+
+const Page = () => {
+
     return (
         <div>
             <Hero />
@@ -34,11 +37,11 @@ const page = () => {
                 </div>
             </div>
 
-            <h1 className=" text-6xl font-bold text-center text-gray-900 my-8 ">Let Our Result Speaks</h1>
+<h1 className=" text-6xl font-bold text-center text-gray-900 my-8 ">Let Our Result Speaks</h1>
 
-            <Winners />
-        </div>
-    )
+<Winners />
+</div>
+)
 }
 
-export default page
+export default Page
