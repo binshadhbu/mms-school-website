@@ -1,3 +1,4 @@
+"use client"
 import Hero from '../common/Hero'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/ui/footer'
@@ -5,10 +6,14 @@ import React from 'react'
 import { FaBook, FaFlask, FaLaptop, FaBasketballBall, FaMusic, FaHospital } from "react-icons/fa";
 import Winners from '../common/Winners';
 import { full_APlus } from '@/types/frontend';
-import { useState,useEffect } from 'react';
+import { useState } from 'react';
+import getSSLC_full from '@/lib/achievements/highschool';
+import { useEffect } from 'react';
+import { CardProps } from '@/types/frontend';
+import { WinnerCard } from '@/components/cards/WinnerCard'
 
 
-const page = () => {
+const Page = () => {
 
     const facilities = [
         { name: "Library", icon: <FaBook className="text-blue-500 text-3xl" /> },
@@ -19,9 +24,16 @@ const page = () => {
         { name: "Medical Room", icon: <FaHospital className="text-red-500 text-3xl" /> },
     ];
 
-    const [full_APlus, setFull_APlus] = useState<full_APlus>([]);
+    const [full, setFull_APlus] = useState<full_APlus>([]);
 
-    
+    useEffect(() => {
+        const loaddata = async () => {
+            const data = await getSSLC_full();
+            setFull_APlus(data);
+        }
+        console.log(loaddata);
+        void loaddata();
+    }, []);
 
 
     return (
@@ -42,9 +54,17 @@ const page = () => {
 
             <h1 className=" text-6xl font-bold text-center text-gray-900 my-8 ">Let Our Result Speaks</h1>
 
-            <Winners />
+            {/* <Winners /> */}
+            <div className="grid grid-cols-1 xs:grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-5 place-items-center m-2 w-full h-full">
+                {full.map((details:CardProps, index) => {
+                    console.log(details.image);
+                    return (
+                        <WinnerCard key={index} name={details.name} achievement={details.achievement} image={details.image} />
+                    );
+                })}
+            </div>
         </div>
     )
 }
 
-export default page
+export default Page

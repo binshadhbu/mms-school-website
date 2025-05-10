@@ -2,7 +2,7 @@ import { Image } from "@/types/bakcend"
 import { clsx, type ClassValue } from "clsx"
 import { twMerge } from "tailwind-merge"
 
-const URL=process.env.NEXT_PUBLIC_URL || "http://localhost:1337"
+const URL=process.env.NEXT_PUBLIC_URL || "http://localhost:1337"; 
 
 export const getImageURL=(image:Image)=>{
   return `${URL}${image.url}`;
