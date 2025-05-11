@@ -17,14 +17,22 @@ export default function Navbar() {
   // Navigation items array
   const navItems = [
     { name: "About", href: "/about" },
-    { name: "Kindergarten", href: "/programmes/kindergarten" },
-    { name: "Primary", href: "/programmes/primary" },
-    { name: "High School", href: "/programmes/highschool" },
-    { name: "Activities", href: "/Activities" },
-    // { name: "Events", href: "/events" },
-    // { name: "Gallery", href: "/gallery" },
-    // { name: "Achievements", href: "/achievements" },
-    // { name: "Team", href: "/team" }
+
+    { 
+      name: "Programmes", 
+      href: "#", 
+      children: [
+        { name: "Kindergarten", href: "/programmes/kindergarten" },
+        { name: "Primary", href: "/programmes/primary" },
+        { name: "High School", href: "/programmes/highschool" },
+      ] 
+    },
+
+    { name: "Activities", href: "/activities" },
+    { name: "Events", href: "/events" },
+    { name: "Gallery", href: "/gallery" },
+    { name: "Team", href: "/team" }
+    
   ];
 
   return (
@@ -104,9 +112,21 @@ export default function Navbar() {
                   <Link href={item.href} className="flex items-center">
                     {item.name}
                   </Link>
+                  {item.children && (
+                    <ul className="mt-2 ml-4 space-y-2">
+                      {item.children.map((subItem, subIndex) => (
+                        <li key={subIndex}>
+                          <Link href={subItem.href} className="text-white hover:text-gray-300">
+                            {subItem.name}
+                          </Link>
+
                 </li>
               ))}
             </ul>
+            )}
+            </li>
+          ))}
+        </ul>
           </div>
 
           {/* Desktop Menu */}
@@ -115,11 +135,23 @@ export default function Navbar() {
               {navItems.map((item, index) => (
                 <li
                   key={index}
-                  className="flex items-center p-1 text-lg gap-x-2 text-gray-300 hover:text-white font-extrabold font-mono"
+                  className="relative group flex items-center p-1 text-lg gap-x-2 text-gray-300 hover:text-white font-extrabold font-mono"
                 >
                   <Link href={item.href} className="flex items-center">
                     {item.name}
                   </Link>
+                  {item.children && ( 
+                    <ul className="absolute left-0 top-full hidden space-y-2 bg-slate-700 text-white group-hover:block z-50 shadow-lg rounded-lg">
+                      {item.children.map((subItem, subIndex) => (
+                        <li key={subIndex}>
+                          <Link href={subItem.href} className="block px-4 py-2 text-white hover:bg-gray-800">
+                            {subItem.name}
+                          </Link>
+                        </li>
+                      ))}
+                      </ul>
+                  )}
+
                 </li>
               ))}
 
