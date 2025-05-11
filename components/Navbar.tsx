@@ -17,12 +17,14 @@ export default function Navbar() {
   // Navigation items array
   const navItems = [
     { name: "About", href: "/about" },
-    { name: "Programmes", href: "/programmes" },
+    { name: "Kindergarten", href: "/programmes/kindergarten" },
+    { name: "Primary", href: "/programmes/primary" },
+    { name: "High School", href: "/programmes/highschool" },
     { name: "Activities", href: "/Activities" },
-    { name: "Events", href: "/events" },
-    { name: "Gallery", href: "/gallery" },
+    // { name: "Events", href: "/events" },
+    // { name: "Gallery", href: "/gallery" },
     // { name: "Achievements", href: "/achievements" },
-    { name: "Team", href: "/team" }
+    // { name: "Team", href: "/team" }
   ];
 
   return (
