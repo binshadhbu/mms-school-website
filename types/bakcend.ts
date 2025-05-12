@@ -31,3 +31,12 @@ export interface uss_backend{
         ussWinners:Information[]
     }
 }
+
+export interface achievements_backend{
+    data:{
+        full_aplus:number,
+        nine_aplus:number,
+        lss:number,
+        uss:number,
+    }
+}

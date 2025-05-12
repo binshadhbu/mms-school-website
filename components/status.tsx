@@ -16,7 +16,7 @@ export function Status() {
       <GridItem
         area="md:[grid-area:1/7/2/13] xl:[grid-area:2/1/3/5]"
         icon={<UserCheck className="h-4 w-4 text-white dark:text-neutral-400" />}
-        title="100+ faculties"
+        title="40+ faculties"
         description="Our institution boasts over 100 dedicated and experienced faculty members."
       />
 
@@ -72,8 +72,7 @@ const GridItem = ({ area, icon, title, description }: GridItemProps) => {
                 {title}
               </h3>
               <h2
-                className="[&_b]:md:font-semibold [&_strong]:md:font-semibold font-sans text-sm/[1.125rem] 
-              md:text-base/[1.375rem]  text-white dark:text-neutral-400"
+                className="[&_b]:md:font-semibold [&_strong]:md:font-semibold font-sans text-sm/[1.125rem] md:text-base/[1.375rem]  text-white dark:text-neutral-400"
               >
                 {description}
               </h2>
