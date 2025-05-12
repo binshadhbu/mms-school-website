@@ -1,9 +1,14 @@
+"use client"
 import Hero from '../common/Hero'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/ui/footer'
 import React from 'react'
 import { FaBook, FaFlask, FaLaptop, FaBasketballBall, FaMusic, FaHospital } from "react-icons/fa";
-import Winners from '../common/Winners';
+import { useEffect } from 'react';
+import getLSSWinners from '@/lib/achievements/primary';
+import { lssWinners } from '@/types/frontend';
+import { CardProps } from '@/types/frontend';
+import { WinnerCard } from '@/components/cards/WinnerCard'
 
 
 const facilities = [
@@ -17,7 +22,20 @@ const facilities = [
 
 
 
-const page = () => {
+
+const Page = () => {
+
+    const [lss, setLSS] = React.useState<lssWinners>([]);
+
+    useEffect(() => {
+        const loaddata = async () => {
+            const data = await getLSSWinners();
+            setLSS(data);
+        }
+        console.log("LSS Winners", lss);
+        void loaddata();
+    }, []);
+
     return (
         <div>
             <Hero />
@@ -36,9 +54,20 @@ const page = () => {
 
             <h1 className=" text-6xl font-bold text-center text-gray-900 my-8 ">Let Our Result Speaks</h1>
 
-            <Winners />
+            <div className="flex justify-center">
+                <div className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 p-4 justify-items-center">
+                    {lss.map((details: CardProps, index) => (
+                        <WinnerCard
+                            key={index}
+                            name={details.name}
+                            achievement={details.achievement}
+                            image={details.image}
+                        />
+                    ))}
+                </div>
+            </div>
         </div>
     )
 }
 
-export default page
+export default Page

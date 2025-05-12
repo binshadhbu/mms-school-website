@@ -1,0 +1,26 @@
+export interface Information {
+    id: string,
+    name: string,
+    image: Image,
+    achievement: string,
+}
+
+
+export type Image = {
+    id: string,
+    url: string,
+}
+
+export interface sslc_full_backend{
+    data: {
+        id: string,
+        full_APlus: Information[]
+    }
+}
+
+export interface lss_backend{
+    data:{
+        id:string,
+        lssWineers:Information[]
+    }
+}
