@@ -24,3 +24,10 @@ export interface lss_backend{
         lssWineers:Information[]
     }
 }
+
+export interface uss_backend{
+    data:{
+        id:string,
+        ussWinners:Information[]
+    }
+}

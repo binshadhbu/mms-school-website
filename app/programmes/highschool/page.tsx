@@ -28,8 +28,10 @@ const Page = () => {
         const loaddata = async () => {
             const data = await getSSLC_full();
             setFull_APlus(data);
+            // console.log("SSLC Full A+", full);
         }
         void loaddata();
+
     }, []);
 
 
