@@ -6,3 +6,4 @@ export interface CardProps{
 
 export type full_APlus=CardProps[];
 export type winnerCardProps=CardProps[];
+export type lssWinners=CardProps[];

@@ -17,3 +17,10 @@ export interface sslc_full_backend{
         full_APlus: Information[]
     }
 }
+
+export interface lss_backend{
+    data:{
+        id:string,
+        lssWineers:Information[]
+    }
+}

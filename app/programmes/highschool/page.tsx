@@ -1,7 +1,5 @@
 "use client"
 import Hero from '../common/Hero'
-import Navbar from '@/components/Navbar'
-import Footer from '@/components/ui/footer'
 import React from 'react'
 import { FaBook, FaFlask, FaLaptop, FaBasketballBall, FaMusic, FaHospital } from "react-icons/fa";
 import Winners from '../common/Winners';
@@ -31,7 +29,6 @@ const Page = () => {
             const data = await getSSLC_full();
             setFull_APlus(data);
         }
-        console.log(loaddata);
         void loaddata();
     }, []);
 
@@ -54,15 +51,20 @@ const Page = () => {
 
             <h1 className=" text-6xl font-bold text-center text-gray-900 my-8 ">Let Our Result Speaks</h1>
 
-            {/* <Winners /> */}
-            <div className="grid grid-cols-1 xs:grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-5 place-items-center m-2 w-full h-full">
-                {full.map((details:CardProps, index) => {
-                    console.log(details.image);
-                    return (
-                        <WinnerCard key={index} name={details.name} achievement={details.achievement} image={details.image} />
-                    );
-                })}
+            <div className="flex justify-center">
+                <div className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 p-4 justify-items-center">
+                    {full.map((details: CardProps, index) => (
+                        <WinnerCard
+                            key={index}
+                            name={details.name}
+                            achievement={details.achievement}
+                            image={details.image}
+                        />
+                    ))}
+                </div>
             </div>
+
+
         </div>
     )
 }
