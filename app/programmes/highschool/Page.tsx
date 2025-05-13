@@ -1,25 +1,39 @@
+"use client"
 import Hero from '../common/Hero'
-import Navbar from '@/components/Navbar'
-import Footer from '@/components/ui/footer'
-import { sslc_List } from '@/type/frontend'
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { FaBook, FaFlask, FaLaptop, FaBasketballBall, FaMusic, FaHospital } from "react-icons/fa";
 import Winners from '../common/Winners';
-
-
-const facilities = [
-    { name: "Library", icon: <FaBook className="text-blue-500 text-3xl" /> },
-    { name: "Science Labs", icon: <FaFlask className="text-green-500 text-3xl" /> },
-    { name: "Computer Labs", icon: <FaLaptop className="text-gray-500 text-3xl" /> },
-    { name: "Sports Complex", icon: <FaBasketballBall className="text-orange-500 text-3xl" /> },
-    { name: "Bus service", icon: <FaMusic className="text-purple-500 text-3xl" /> },
-    { name: "Medical Room", icon: <FaHospital className="text-red-500 text-3xl" /> },
-];
-
-
+import { full_APlus } from '@/types/frontend';
+import { useState } from 'react';
+import getSSLC_full from '@/lib/achievements/highschool';
+import { useEffect } from 'react';
+import { CardProps } from '@/types/frontend';
+import { WinnerCard } from '@/components/cards/WinnerCard'
 
 
 const Page = () => {
+
+    const facilities = [
+        { name: "Library", icon: <FaBook className="text-blue-500 text-3xl" /> },
+        { name: "Science Labs", icon: <FaFlask className="text-green-500 text-3xl" /> },
+        { name: "Computer Labs", icon: <FaLaptop className="text-gray-500 text-3xl" /> },
+        { name: "Sports Complex", icon: <FaBasketballBall className="text-orange-500 text-3xl" /> },
+        { name: "Bus service", icon: <FaMusic className="text-purple-500 text-3xl" /> },
+        { name: "Medical Room", icon: <FaHospital className="text-red-500 text-3xl" /> },
+    ];
+
+    const [full, setFull_APlus] = useState<full_APlus>([]);
+
+    useEffect(() => {
+        const loaddata = async () => {
+            const data = await getSSLC_full();
+            setFull_APlus(data);
+            // console.log("SSLC Full A+", full);
+        }
+        void loaddata();
+
+    }, []);
+
 
     return (
         <div>
@@ -39,9 +53,22 @@ const Page = () => {
 
 <h1 className=" text-6xl font-bold text-center text-gray-900 my-8 ">Let Our Result Speaks</h1>
 
-<Winners />
-</div>
-)
+            <div className="flex justify-center">
+                <div className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 p-4 justify-items-center">
+                    {full.map((details: CardProps, index) => (
+                        <WinnerCard
+                            key={index}
+                            name={details.name}
+                            achievement={details.achievement}
+                            image={details.image}
+                        />
+                    ))}
+                </div>
+            </div>
+
+
+        </div>
+    )
 }
 
 export default Page

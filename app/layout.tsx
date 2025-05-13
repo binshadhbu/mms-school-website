@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono,Roboto } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "next-themes";
 import Navbar from "@/components/Navbar";
@@ -16,6 +16,14 @@ const geistMono = Geist_Mono({
 });
 
 
+const roboto = Roboto({
+  subsets: ['latin'],
+  variable: '--font-roboto',
+  weight: ['400', '700'], // Use the weights you need
+  display: 'swap',        // Optional: improves performance
+});
+
+
 export const metadata: Metadata = {
   title: "MMS Educational campus",
   description: "MMS Educational Campus official webstite",
@@ -29,7 +37,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${roboto.variable}  antialiased`}
       >
         <ThemeProvider
           attribute="class"
