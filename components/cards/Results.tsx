@@ -8,10 +8,10 @@ import getAchievements from '@/lib/home/home';
 
 const Results = () => {
   const [achievements, setAchievements] = useState<achievement>({
-    full_aplus: 0,
-    nine_aplus: 0,
-    lss: 0,
-    uss: 0,
+    full_aplus: 20,
+    nine_aplus: 5,
+    lss: 15,
+    uss: 10,
   });
 
   useEffect(() => {

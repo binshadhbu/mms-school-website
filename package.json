@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@heroui/accordion": "^2.2.16",
     "@heroui/react": "^2.7.4",
     "@radix-ui/react-navigation-menu": "^1.2.5",
     "@tabler/icons-react": "^3.31.0",

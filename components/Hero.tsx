@@ -5,6 +5,7 @@ import { ImagesSlider } from "@/components/ui/images-slider";
 
 export function Hero() {
   const images = [
+    "/common/hero.jpeg",
     "/common/hero3.jpeg",
     "/common/hero2.jpeg",
     "/common/hero1.jpeg",
@@ -23,7 +24,7 @@ export function Hero() {
           y: 0,
         }}
         transition={{
-          duration: 0.6,
+          duration: 2,
         }}
         className="z-50 flex flex-col justify-center items-center"
       >

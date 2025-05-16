@@ -28,7 +28,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${roboto.className}  antialiased`}
+        className={`font-sans antialiased`}
       >
         <ThemeProvider
           attribute="class"
