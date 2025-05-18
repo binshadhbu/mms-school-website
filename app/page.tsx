@@ -1,9 +1,7 @@
 import Heading from "@/components/Header/Heading";
-import NavbarList from "@/components/Navbar"
 import { Message } from "@/components/message";
 import { Status } from "@/components/status";
 import Results from "@/components/cards/Results";
-import Footer from "@/components/ui/footer";
 import { Hero } from "@/components/Hero";
 import AccordionHome from "@/components/AccordionHome";
 import { NotableAlumni } from "@/components/NotableAlumni";
