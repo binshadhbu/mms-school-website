@@ -1,0 +1,232 @@
+.container {
+  font-family: 'Arial', sans-serif;
+  color: #333;
+}
+
+
+
+.hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 60px 40px;
+  background: #f9f9f9;
+  flex-wrap: wrap;
+}
+
+.heroText {
+  max-width: 500px;
+}
+
+.heroText h1 {
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+.highlight {
+  color: #c5a867;
+  font-weight: bold;
+}
+
+.heroText p {
+  margin-bottom: 20px;
+}
+
+.joinButton {
+  background-color: #ef7d7d;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  font-size: 16px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.heroImage {
+  margin-top: 20px;
+}
+
+.imagePlaceholder {
+  width: 400px;
+  height: 300px;
+  background-color: #ddd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  color: #666;
+  border-radius: 12px;
+  border: 2px dashed #bbb;
+}
+
+.programs {
+  padding: 60px 40px;
+  text-align: center;
+}
+
+.programs h2 {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.programs p {
+  max-width: 600px;
+  margin: 0 auto 40px;
+  color: #666;
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.card {
+  background: #f1f1f1;
+  padding: 20px;
+  width: 240px;
+  border-radius: 10px;
+  text-align: left;
+}
+
+.cardNumber {
+  font-weight: bold;
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: #999;
+}
+
+.card h3 {
+  font-size: 16px;
+  margin: 5px 0;
+}
+
+.cardText {
+  font-size: 14px;
+  color: #555;
+}
+
+.card1 {
+  background-color: #c1a68a; 
+  color: white;
+}
+
+.card2 {
+  background-color: #a3c6bd; 
+  color: white;
+}
+
+.card3 {
+  background-color: #f69c9c; 
+  color: white;
+}
+
+.card4 {
+  background-color: #d6c58f; 
+  color: white;
+}
+ 
+
+.about {
+  padding: 60px 40px;
+  background: #fff7f0;
+  text-align: center;
+}
+
+.about h2 {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+
+.team {
+  padding: 60px 40px;
+  background: #f4f9ff;
+  text-align: center;
+}
+
+.teamMembers {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.memberCard {
+  background: white;
+  padding: 20px;
+  width: 200px;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.memberPhoto {
+  width: 100%;
+  height: 150px;
+  background-color: #ddd;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.gallery {
+  padding: 60px 40px;
+  background: #fefefe;
+  text-align: center;
+}
+
+.galleryGrid {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 30px;
+}
+
+.galleryItem {
+  width: 200px;
+  height: 200px;
+  background-color: #eee;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.newsletter {
+  background: #fff3e0;
+  padding: 60px 40px;
+  text-align: center;
+}
+
+.subscribeBox {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.subscribeBox input {
+  padding: 10px;
+  width: 250px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.subscribeBox button {
+  background-color: #ef7d7d;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+
