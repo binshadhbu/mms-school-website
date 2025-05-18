@@ -1,5 +1,5 @@
 "use client"
-import React, { useEffect } from 'react'
+import React, { useEffect,useState } from 'react'
 import { GlowingEffect } from "@/components/ui/glowing-effect";
 import { achievement } from "@/types/frontend";
 import { achievements_backend } from "@/types/bakcend";
@@ -7,20 +7,21 @@ import getAchievements from '@/lib/home/home';
 
 
 const Results = () => {
-  const [achievements, setAchievements] = React.useState<achievement>({
-    full_aplus: 0,
-    nine_aplus: 0,
-    lss: 0,
-    uss: 0,
+  const [achievements, setAchievements] = useState<achievement>({
+    full_aplus: 20,
+    nine_aplus: 5,
+    lss: 15,
+    uss: 10,
   });
 
   useEffect(() => {
     const loaddata = async () => {
       const data = await getAchievements();
+      console.log(data);
       setAchievements(data);
     }
     void loaddata();
-  })
+  },[])
 
   return (
     <div className=" flex flex-col justify-center  py-5 mb-10 px-5">
