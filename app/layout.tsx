@@ -8,12 +8,6 @@ import { lato } from "@/fonts";
 
 
 
-const roboto = Roboto({
-  subsets: ['latin'],
-  variable: '--font-roboto',
-  weight: ['400', '700'], // Use the weights you need
-  display: 'swap',        // Optional: improves performance
-});
 
 
 export const metadata: Metadata = {
