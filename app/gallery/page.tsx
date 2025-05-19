@@ -101,7 +101,7 @@ const Page = () => {
             </div>
           </div>
           :
-          <div className="w-full h-screen overflow-hidden sticky top-0 grid grid-cols-1 md:grid-cols-3 bg-gray-900" style={{
+          <div className="w-full h-screen overflow-hidden scroll-smooth sticky top-0 grid grid-cols-1 md:grid-cols-3 bg-gray-900" style={{
             scrollBehavior: 'smooth',
           }}
           >
