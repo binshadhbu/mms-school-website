@@ -4,6 +4,7 @@ import "./globals.css";
 import { ThemeProvider } from "next-themes";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/ui/footer";
+import { lato } from "@/fonts";
 
 
 
@@ -28,7 +29,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`font-sans antialiased`}
+        className={`${lato.className} antialiased`}
       >
         <ThemeProvider
           attribute="class"
