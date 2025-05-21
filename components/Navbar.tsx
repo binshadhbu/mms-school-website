@@ -3,8 +3,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import { HoveredLink, Menu, MenuItem, ProductItem } from "./ui/navbar-menu";
-import { cn } from "@/lib/utils";
+import { lato } from "@/fonts";
+
 
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -33,8 +33,8 @@ export default function Navbar() {
   ];
 
   return (
-    <div>
-      <nav className="block w-full max-w-screen px-4 py-4 mx-auto bg-gray-900  sticky top-3 shadow lg:px-2 backdrop-blur-lg backdrop-saturate-150 z-[9999]">
+    <div className={`${lato.className} `}>
+      <nav className="block  w-full max-w-screen px-4 py-4 mx-auto bg-gray-900  sticky top-3 shadow lg:px-2 backdrop-blur-lg backdrop-saturate-150 z-[9999]">
         <div className="container flex flex-wrap items-center justify-between mx-auto text-slate-800">
           <Link
             href="/"

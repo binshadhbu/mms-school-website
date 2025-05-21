@@ -63,5 +63,6 @@ export {
     alexandria,
     zenTokyoZoo,
     cantarell,
-    inconsolate
+    inconsolate,
+    roboto
 }
