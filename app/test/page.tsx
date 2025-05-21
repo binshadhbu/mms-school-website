@@ -1,135 +1,126 @@
-import React from "react";
-// import { TimelineDemo } from "./TimeLine";
-import Heading from "@/components/Header/Heading";
-import { TimelineDemo } from "../about/TimeLine";
+import React from 'react';
 
-
-const About = () => {
-    return (
-        <div className="bg-gray-100">
-            <section className="bg-gray-600 text-white text-center py-20">
-                <h1 className="text-4xl font-bold">About Our School</h1>
-                <p className="mt-4 text-lg">
-                    A place of excellence in education and values
-                </p>
-            </section>
-
-            {/* Mission, Vision, Values */}
-            <section className=" mx-auto py-16 px-6  ">
-
-                <div className="grid md:grid-cols-1 gap-8 place-items-center">
-                    <div className="bg-white p-6 shadow-lg rounded-2xl flex flex-col md:flex-row items-start md:w-[85%] ">
-                        <div className="md:w-1/3 w-full mb-4 md:mb-0 flex-shrink-0">
-                            <Heading title="Mission" />
-                        </div>
-                        <div className="md:w-2/3 w-full">
-                            <p className="mt-2 text-gray-700">
-                                Our mission at MMS UPS Educational Campus is to provide a holistic
-                                education that nurtures academic excellence, character
-                                development, and lifelong learning. We strive to create a safe and
-                                inspiring environment where students develop critical thinking,
-                                moral values, and modern skills to thrive in an ever-evolving
-                                world. Through dedicated teaching and strong mentorship, we
-                                empower students to become responsible, confident, and
-                                compassionate individuals who contribute positively to society.
-                                <br /><br />
-                                We are committed to fostering a culture of curiosity and innovation,
-                                encouraging our students to explore new ideas, embrace challenges,
-                                and pursue their passions with determination. Our educators work
-                                collaboratively to design engaging curricula and co-curricular
-                                activities that promote intellectual growth, creativity, and
-                                teamwork. By integrating technology and real-world experiences into
-                                our teaching methods, we ensure that our students are well-prepared
-                                for the demands of the 21st century.
-                               
-                            </p>
-                        </div>
-                    </div>
-                    <div className="bg-white p-6 shadow-lg rounded-2xl flex flex-col md:flex-row items-start md:w-[85%]">
-                        <div className="md:w-1/3 w-full mb-4 md:mb-0 flex-shrink-0">
-                            <Heading title="Vision" />
-                        </div>
-                        <div className="md:w-2/3 w-full">
-                            <p className="mt-2 text-gray-700">
-                                At MMS UPS Educational Campus, we envision a future where every
-                                student is empowered with knowledge, skills, and values to excel
-                                in life and contribute meaningfully to society. We aspire to be a
-                                center of academic excellence, fostering innovation, leadership,
-                                and a lifelong passion for learning. Through a nurturing and
-                                inclusive environment, we aim to shape responsible global citizens
-                                who uphold integrity, embrace diversity, and drive positive change
-                                in the world.
-                                <br /><br />
-                                Our vision extends beyond academic achievement; we are dedicated to
-                                cultivating a community where students are encouraged to dream big,
-                                think critically, and act with compassion. We believe in the power
-                                of education to transform lives and communities, and we are
-                                committed to providing opportunities for every learner to discover
-                                their unique strengths and talents. By embracing new technologies,
-                                fostering creativity, and promoting collaboration, we prepare our
-                                students to navigate the complexities of a rapidly changing world.
-                                
-                            </p>
-                        </div>
-                    </div>
-                    <div className="bg-white p-6 shadow-lg rounded-2xl flex flex-col md:flex-row items-start md:w-[85%]">
-                        
-                        <div className="md:w-1/3 w-full mb-4 md:mb-0 flex-shrink-0">
-                            <Heading title="Values" />
-                        </div>
-                        <div className="md:w-2/3 w-full">
-                            <p className="mt-2 text-gray-700">
-                                At MMS UPS Educational Campus, we envision a future where every
-                                student is empowered with knowledge, skills, and values to excel
-                                in life and contribute meaningfully to society. We aspire to be a
-                                center of academic excellence, fostering innovation, leadership,
-                                and a lifelong passion for learning. Through a nurturing and
-                                inclusive environment, we aim to shape responsible global citizens
-                                who uphold integrity, embrace diversity, and drive positive change
-                                in the world.
-                                <br /><br />
-                                Our core values are the foundation of everything we do. We believe in
-                                integrity, honesty, and respect for all individuals, fostering a culture
-                                where every student feels valued and supported. We encourage curiosity,
-                                creativity, and a growth mindset, inspiring our students to pursue
-                                excellence in academics, sports, arts, and community service. Teamwork
-                                and collaboration are at the heart of our approach, as we believe that
-                                working together leads to greater achievements and stronger relationships.
-                                
-                            </p>
-                    </div>
-                    </div>
-                </div>
-            </section>
-
-            <TimelineDemo />
-
-            {/* <TimelineDemo /> */}
-
-            {/* Parents Association */}
-            <section className="max-w-6xl mx-auto py-16 px-6">
-                <h2 className="text-3xl font-semibold text-center mb-10">
-                    Parents Association
-                </h2>
-                <div className="grid md:grid-cols-2 gap-8">
-                    <div className="bg-white p-6 shadow-lg rounded-lg">
-                        <h3 className="text-xl font-bold">[Parent&aposs Name]</h3>
-                        <p className="text-gray-700">
-                            Testimonial or involvement details
-                        </p>
-                    </div>
-                    <div className="bg-white p-6 shadow-lg rounded-lg">
-                        <h3 className="text-xl font-bold">[Parent&aposs Name]</h3>
-                        <p className="text-gray-700">
-                            Testimonial or involvement details
-                        </p>
-                    </div>
-                </div>
-            </section>
-
-
+const Page = () => {
+  return (
+    <div className="font-sans text-gray-800">
+      
+      <section className="flex flex-wrap justify-between items-center p-16 bg-gray-50">
+        <div className="max-w-md">
+          <h1 className="text-4xl mb-5 leading-snug">
+            Join our friendly <br />
+            <span className="text-yellow-600 font-bold">Dreamy Cloud</span> family
+          </h1>
+          <p className="mb-5 text-gray-600">
+            We offer a safe, nurturing environment with developmentally appropriate
+            activities and opportunities for children to creatively explore and learn
+            through play
+          </p>
+          <button className="bg-pink-400 text-white px-6 py-3 rounded-md text-lg hover:bg-pink-500 transition">
+            Join Us
+          </button>
         </div>
-    );
+        <div className="mt-5 md:mt-0">
+          <div className="w-96 h-72 bg-gray-300 border-2 border-dashed border-gray-400 rounded-xl flex items-center justify-center text-gray-600 text-lg">
+            Image Placeholder
+          </div>
+        </div>
+      </section>
+
+      <section className="px-10 py-16 text-center">
+        <h2 className="text-3xl mb-2">Our programs</h2>
+        <p className="max-w-xl mx-auto mb-10 text-gray-600">
+          We offer a safe, nurturing environment with developmentally appropriate
+          activities and opportunities for children to creatively explore and learn
+          through play
+        </p>
+        <div className="flex flex-wrap justify-center gap-5">
+          {[
+            { age: '2.5 - 3 Year Olds', title: 'Discipline Program', bg: 'bg-yellow-700', text: 'text-white' },
+            { age: '3 - 5 Year Olds', title: 'Junior Nursery', bg: 'bg-teal-400', text: 'text-white' },
+            { age: '4 - 6 Year Olds', title: 'Kids Play Group', bg: 'bg-pink-400', text: 'text-white' },
+            { age: '3 - 5 Year Olds', title: 'Drawing and colors', bg: 'bg-yellow-500', text: 'text-white' },
+          ].map((item, idx) => (
+            <div
+              key={idx}
+              className={`${item.bg} ${item.text} p-5 w-60 rounded-lg text-left`}
+            >
+              <div className="font-bold text-lg mb-2 opacity-70">{`0${idx + 1}`}</div>
+              <h3 className="text-xl mb-1">{item.age}</h3>
+              <p className="mb-2">{item.title}</p>
+              <p className="text-sm text-gray-200">
+                Lorem ipsum dolor sit amet consectetur. Nunc nunc odio faucibus
+                suspendisse in nunc.
+              </p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="px-10 py-16 bg-orange-50 text-center">
+        <h2 className="text-3xl mb-2">About Kindergarten</h2>
+        <p className="max-w-xl mx-auto text-gray-700">
+          Our kindergarten is built on the foundation of love, learning, and creativity.
+          We provide a safe and engaging environment where children feel free to express themselves,
+          explore new ideas, and grow into kind and confident individuals.
+        </p>
+      </section>
+
+      <section className="px-10 py-16 bg-blue-50 text-center">
+        <h2 className="text-3xl mb-6">Meet Our Team</h2>
+        <div className="flex flex-wrap justify-center gap-5">
+          {[1, 2, 3].map((member) => (
+            <div
+              key={member}
+              className="bg-white p-5 w-48 rounded-lg shadow-md flex flex-col items-center"
+            >
+              <div className="w-full h-36 bg-gray-300 rounded-lg mb-3 flex items-center justify-center text-gray-600">
+                Photo
+              </div>
+              <h3 className="text-lg font-semibold">Teacher Name</h3>
+              <p className="text-gray-600">Position</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="px-10 py-16 bg-white text-center">
+        <h2 className="text-3xl mb-2">Our Gallery</h2>
+        <p className="max-w-xl mx-auto text-gray-700 mb-8">
+          Explore the wonderful world of creativity and imagination through the eyes of our little artists.
+          This gallery showcases the unique talents of our kindergarteners, highlighting their drawings,
+          crafts, and projects.
+        </p>
+        <div className="flex flex-wrap justify-center gap-5">
+          {[1, 2, 3, 4].map((img) => (
+            <div
+              key={img}
+              className="w-48 h-48 bg-gray-200 rounded-3xl flex items-center justify-center text-gray-600"
+            >
+              Image
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="px-10 py-16 bg-orange-100 text-center">
+        <h2 className="text-3xl mb-3">Stay informed with all our latest news!</h2>
+        <p className="max-w-xl mx-auto text-gray-700 mb-6">
+          Subscribe to our updates to stay informed about important news, events,
+          and announcements from the daycare. We're always happy to keep you in the loop!
+        </p>
+        <div className="flex flex-wrap justify-center gap-4">
+          <input
+            type="email"
+            placeholder="Your Email"
+            className="px-4 py-2 w-64 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-pink-400"
+          />
+          <button className="bg-pink-400 text-white px-6 py-2 rounded-md hover:bg-pink-500 transition">
+            Subscribe now
+          </button>
+        </div>
+      </section>
+    </div>
+  );
 };
 
-export default About;
+export default Page;

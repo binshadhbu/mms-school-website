@@ -10,7 +10,7 @@ export function WinnerCard({ name, achievement, image }: CardProps) {
   return (
     <div
       className={cn(
-        "overflow-hidden relative card h-96 rounded-3xl max-w-sm mx-auto flex flex-col justify-end p-1 bg-gray-900 mb-5 hover:shadow-xl hover:scale-105 duration-500",
+        "overflow-hidden relative card h-60 w-60 rounded-3xl max-w-sm mx-auto flex flex-col justify-end p-1 bg-gray-900 mb-5 hover:shadow-xl hover:scale-105 duration-500",
         "bg-cover"
       )}
     >

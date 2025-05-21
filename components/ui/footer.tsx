@@ -55,20 +55,39 @@ const footer = () => {
 
             </ul>
           </div>
-
         </div>
 
+        <address className="not-italic">
+          <ul>
+            <li className="text-white text-sm font-normal mb-2 whitespace-nowrap">MMS Educational Campus</li>
+            <li className="text-white text-sm font-normal mb-2 whitespace-nowrap">Kozhinhil, Perinthattiri PO</li>
+            <li className="text-white text-sm font-normal mb-2 whitespace-nowrap">Malappuram, Kerala 676507</li>
+            <li className="text-white text-sm font-normal whitespace-nowrap">+91 1234567890</li>
+          </ul>
+        </address>
 
         {/* CLOUMN-4 */}
-
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3916.760236454767!2d76.1300620759723!3d11.04252588912287!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba634dffcb8936f%3A0x600a4ae51d45af31!2sMMS%20High%20SCHOOL!5e0!3m2!1sen!2sin!4v1747329549119!5m2!1sen!2sin" width="350" height="250" loading="lazy" className="mx-10 ml-10 mr-10 px-10"></iframe>
+        
+        <div className="col-span-4 flex justify-end items-start ml-20">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3916.760236454767!2d76.1300620759723!3d11.04252588912287!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba634dffcb8936f%3A0x600a4ae51d45af31!2sMMS%20High%20SCHOOL!5e0!3m2!1sen!2sin!4v1747329549119!5m2!1sen!2sin"
+            width="350"
+            height="250"
+            loading="lazy"
+            className="px-10 "
+            style={{ border: 0 }}
+            allowFullScreen
+            referrerPolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </div>
+        {/* <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3916.760236454767!2d76.1300620759723!3d11.04252588912287!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba634dffcb8936f%3A0x600a4ae51d45af31!2sMMS%20High%20SCHOOL!5e0!3m2!1sen!2sin!4v1747329549119!5m2!1sen!2sin" width="350" height="250" loading="lazy" className="px-10"></iframe> */}
       </div>
       {/* </div> */}
 
       {/* All Rights Reserved */}
 
       <div className='pb-15 px-4 mt-5' >
-        <h3 className='text-center text-white font-sans text-sm '>@2025 - All Rights Reserved by <Link href="https://adminmart.com/" target="_blank"> MMS Educational Campus</Link></h3>
+        <h3 className='text-center text-white font-lato text-sm '>@2025 - All Rights Reserved by <Link href="https://adminmart.com/" target="_blank"> MMS Educational Campus</Link></h3>
       </div>
 
     </div>

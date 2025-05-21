@@ -8,7 +8,7 @@ import { useEffect } from 'react';
 import { lssWinners } from '@/types/frontend';
 import { CardProps } from '@/types/frontend';
 import { WinnerCard } from '@/components/cards/WinnerCard'
-import { getLSSWinners,getUSSWinners } from '@/lib/achievements/primary';
+import { getLSSWinners, getUSSWinners } from '@/lib/achievements/primary';
 
 const facilities = [
     { name: "Library", icon: <FaBook className="text-blue-500 text-3xl" /> },
@@ -25,13 +25,13 @@ const facilities = [
 const Page = () => {
 
     const [lss, setLSS] = React.useState<lssWinners>([]);
-    const [uss,setUss]  = React.useState<lssWinners>([]);
+    const [uss, setUss] = React.useState<lssWinners>([]);
 
     useEffect(() => {
         const loaddata = async () => {
             const lss_data = await getLSSWinners();
             setLSS(lss_data);
-            const uss_data=await getUSSWinners();
+            const uss_data = await getUSSWinners();
             setUss(uss_data);
             // console.log("LSS Winners", lss);
         }
@@ -57,7 +57,7 @@ const Page = () => {
             <h1 className=" text-6xl font-bold text-center text-gray-900 my-8 ">Let Our Result Speaks</h1>
 
             <div className="flex justify-center">
-                <div className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 p-4 justify-items-center">
+                <div className="mx-auto flex  justify-center gap-2 p-2 ">
                     {lss.map((details: CardProps, index) => (
                         <WinnerCard
                             key={index}
@@ -69,8 +69,8 @@ const Page = () => {
                 </div>
             </div>
 
-            <div className="flex justify-center">
-                <div className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 p-4 justify-items-center">
+            <div className="flex justify-center max-w-6xl mx-auto ">
+                <div className="mx-auto flex  justify-center gap-2 p-2 ">
                     {uss.map((details: CardProps, index) => (
                         <WinnerCard
                             key={index}
