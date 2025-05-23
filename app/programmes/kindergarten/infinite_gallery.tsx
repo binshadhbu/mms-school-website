@@ -91,11 +91,10 @@ export const InfiniteGallery = ({
             key={idx}
           >
             <div className="flex items-center justify-center h-full w-full p-1">
-              <img
-                src={item.link}
-                alt={item.name}
-                className="object-cover rounded-xl w-full h-full"
-              />
+            <p>{item.quote}</p>
+            <p>{item.name}</p>
+            <p>{item.title}</p>
+
             </div>
           </li>
         ))}

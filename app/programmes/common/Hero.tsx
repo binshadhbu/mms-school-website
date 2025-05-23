@@ -3,6 +3,7 @@ import React, { useTransition, useState } from "react";
 import Image from "next/image";
 import TabButton from "./TabButton";
 
+
 const TAB_DATA = [
   {
     title: "Skills",
@@ -51,6 +52,7 @@ const AboutSection = () => {
   };
 
   return (
+    
     <section className="text-white bg-[#F1F1F1] " id="about">
       <div className="md:grid md:grid-cols-2 gap-5 items-center py-8   sm:py-16 xl:px-16 rounded-3xl overflow-hidden ">
         <Image src="/hs/hs.jpeg" width={500} height={500} alt="school image" className="rounded-3xl " />
