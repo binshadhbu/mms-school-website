@@ -1,7 +1,5 @@
 "use client"
 import Hero from '../common/Hero'
-import Navbar from '@/components/Navbar'
-import Footer from '@/components/ui/footer'
 import React from 'react'
 import { FaBook, FaFlask, FaLaptop, FaBasketballBall, FaMusic, FaHospital } from "react-icons/fa";
 import { useEffect } from 'react';
@@ -9,6 +7,7 @@ import { lssWinners } from '@/types/frontend';
 import { CardProps } from '@/types/frontend';
 import { WinnerCard } from '@/components/cards/WinnerCard'
 import { getLSSWinners, getUSSWinners } from '@/lib/achievements/primary';
+import Message from '@/components/message';
 
 const facilities = [
     { name: "Library", icon: <FaBook className="text-blue-500 text-3xl" /> },
@@ -68,6 +67,8 @@ const Page = () => {
                     ))}
                 </div>
             </div>
+
+            <Message link='message-primary-principal' />
 
             <div className="flex justify-center max-w-6xl mx-auto ">
                 <div className="mx-auto flex  justify-center gap-2 p-2 ">

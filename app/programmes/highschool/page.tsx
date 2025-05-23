@@ -2,13 +2,13 @@
 import Hero from '../common/Hero'
 import React from 'react'
 import { FaBook, FaFlask, FaLaptop, FaBasketballBall, FaMusic, FaHospital } from "react-icons/fa";
-import Winners from '../common/Winners';
 import { full_APlus } from '@/types/frontend';
 import { useState } from 'react';
 import getSSLC_full from '@/lib/achievements/highschool';
 import { useEffect } from 'react';
 import { CardProps } from '@/types/frontend';
 import { WinnerCard } from '@/components/cards/WinnerCard'
+import Message from '@/components/message';
 
 
 const Page = () => {
@@ -51,9 +51,10 @@ const Page = () => {
                 </div>
             </div>
 
-            <h1 className=" text-6xl font-bold text-center text-gray-900 my-8 ">Let Our Result Speaks</h1>
+            <Message link='high-school-prinicipal-message' />
 
             <div className="mx-auto max-w-7xl flex  justify-center gap-2 p-2">
+                <h1 className=" text-6xl font-bold text-center text-gray-900 my-8 ">Let Our Result Speaks</h1>
                 {full.map((details: CardProps, index) => (
                     <WinnerCard
                         key={index}

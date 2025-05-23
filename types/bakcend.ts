@@ -6,7 +6,7 @@ export interface Information {
 }
 
 
-export type Image = {
+export interface Image  {
     id: string,
     url: string,
 }
@@ -38,5 +38,14 @@ export interface achievements_backend{
         nine_aplus:number,
         lss:number,
         uss:number,
+    }
+}
+
+export interface message_backend{
+    data:{
+        name:string,
+        position:string,
+        image:Image,
+        message:string
     }
 }
