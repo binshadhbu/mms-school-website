@@ -53,6 +53,8 @@ const Page = () => {
                 </div>
             </div>
 
+            <Message link='message-primary-principal' />
+
             <h1 className=" text-6xl font-bold text-center text-gray-900 my-8 ">Let Our Result Speaks</h1>
 
             <div className="flex justify-center">
@@ -68,7 +70,7 @@ const Page = () => {
                 </div>
             </div>
 
-            <Message link='message-primary-principal' />
+
 
             <div className="flex justify-center max-w-6xl mx-auto ">
                 <div className="mx-auto flex  justify-center gap-2 p-2 ">
