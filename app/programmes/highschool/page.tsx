@@ -1,7 +1,5 @@
 "use client"
-import Hero from '../common/Hero'
 import React, { useEffect, useState } from 'react'
-import Image from 'next/image';
 
 import {
   FaBook,
