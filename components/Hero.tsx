@@ -1,18 +1,33 @@
 "use client";
 import { motion } from "framer-motion";
 import React from "react";
-import { ImagesSlider } from "@/components/ui/images-slider";
+import { ImagesSlider } from "@/components/ui/images-slider"
+import { ImageSlider } from "@/types/frontend";
+import getImages from "@/lib/home/getImages";
+import EmblaCarousel from "@/components/slider/EmblaCarousel";
+import { useState,useEffect } from "react";
+
 
 export function Hero() {
-  const images = [
-    "/common/hero.jpeg",
-    "/common/hero3.jpeg",
-    "/common/hero2.jpeg",
-    "/common/hero1.jpeg",
-  ];
+  
+  const imgs=[ "http://127.0.0.1:1337/uploads/hero2_f02cd1be5b.jpeg", "http://127.0.0.1:1337/uploads/hero4_97eba91f72.jpg", "http://127.0.0.1:1337/uploads/hero_be65ff2cff.jpeg", "http://127.0.0.1:1337/uploads/hero3_56d596cf11.jpeg" ];
+  const [images, setImages] = useState<string[]>([]);
+
+  useEffect(() => {
+    const fetchImages = async () => {
+      const imageData = await getImages({ link: "slding-image" });
+      setImages(imageData);
+      // console.log(images);
+    };
+    fetchImages();
+  }, []);
+
+  console.log("images",images);
+  console.log("imgs",imgs);
 
 
   return (
+  
     <ImagesSlider className="h-[40rem] mb-10" images={images}>
       <motion.div
         initial={{

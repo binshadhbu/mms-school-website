@@ -2,6 +2,7 @@ import React from "react";
 // import { TimelineDemo } from "./TimeLine";
 import Heading from "@/components/Header/Heading";
 import { TimelineDemo } from "../about/TimeLine";
+import Message from "@/components/message";
 
 
 const About = () => {
@@ -101,6 +102,8 @@ const About = () => {
                     </div>
                 </div>
             </section>
+
+            <Message link='message-manager' />
 
             <TimelineDemo />
 

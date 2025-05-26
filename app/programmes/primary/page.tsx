@@ -1,8 +1,12 @@
 "use client";
 
-import Hero from '../common/Hero';
 import React from 'react';
-import Image from 'next/image';
+import Message from '@/components/message';
+import { useEffect } from 'react';
+import { lssWinners } from '@/types/frontend';
+import { CardProps } from '@/types/frontend';
+import { WinnerCard } from '@/components/cards/WinnerCard'
+import { getLSSWinners, getUSSWinners } from '@/lib/achievements/primary';
 
 import {
   FaBook,
@@ -28,6 +32,20 @@ const Page = () => {
     { name: "def", subject: "Science" },
     { name: "xyz", subject: "Art" },
   ];
+
+  const [lss, setLSS] = React.useState<lssWinners>([]);
+    const [uss, setUss] = React.useState<lssWinners>([]);
+
+    useEffect(() => {
+        const loaddata = async () => {
+            const lss_data = await getLSSWinners();
+            setLSS(lss_data);
+            const uss_data = await getUSSWinners();
+            setUss(uss_data);
+            // console.log("LSS Winners", lss);
+        }
+        void loaddata();
+    }, []);
 
   return (
     <div className="bg-[#F8F8F8]">
@@ -69,19 +87,8 @@ const Page = () => {
       </section>
 
       {/* Faculty Section */}
-      <section className="px-10 py-16 bg-blue-50 text-center rounded-xl shadow-md mx-4 my-10">
-        <h2 className="text-3xl font-bold text-gray-700 mb-6">Meet Our Primary Teachers</h2>
-        <div className="flex flex-wrap justify-center gap-6">
-          {faculty.map((teacher, index) => (
-            <div key={index} className="bg-white p-4 rounded-xl shadow-md w-60 text-center">
-              <div className="w-32 h-32 mx-auto rounded-full bg-gray-300 flex items-center justify-center mb-4">
-                <FaUser className="text-gray-500 text-3xl" />
-              </div>
-              <h3 className="text-xl font-semibold text-gray-800">{teacher.name}</h3>
-              <p className="text-gray-600">{teacher.subject}</p>
-            </div>
-          ))}
-        </div>
+      <section className="px-10  bg-blue-50 text-center rounded-xl shadow-md mx-4 my-10">
+        <Message link='message-primary-principal' />
       </section>
 
       {/* Life at Primary School */}
@@ -106,6 +113,37 @@ const Page = () => {
           ))}
         </div>
       </section>
+
+       <section className="px-10 py-16 bg-orange-50 text-center rounded-xl shadow-md mx-4 my-10">
+              <h2 className="text-4xl font-extrabold mb-10 text-gray-800">Let Our Results Speak</h2>
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 justify-center">
+                {lss.map((student: CardProps, index) => (
+                  <div
+                    key={index}
+                    className="bg-white p-4 rounded-xl shadow-md text-center"
+                  >
+                    <div className="w-32 h-32 mx-auto rounded-full bg-gray-200 flex items-center justify-center mb-3 overflow-hidden">
+                    <img src={student.image} alt="" className='' />
+                    </div>
+                    <h3 className="text-lg font-semibold text-gray-800">{student.name}</h3>
+                    <p className="text-pink-500 font-medium">{student.achievement}</p>
+                  </div>
+                ))}
+
+                {uss.map((student: CardProps, index) => (
+                  <div
+                    key={index}
+                    className="bg-white p-4 rounded-xl shadow-md text-center"
+                  >
+                    <div className="w-32 h-32 mx-auto rounded-full bg-gray-200 flex items-center justify-center mb-3 overflow-hidden">
+                    <img src={student.image} alt="" className='' />
+                    </div>
+                    <h3 className="text-lg font-semibold text-gray-800">{student.name}</h3>
+                    <p className="text-pink-500 font-medium">{student.achievement}</p>
+                  </div>
+                ))}
+              </div>
+            </section>
     </div>
   );
 };

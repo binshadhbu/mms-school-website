@@ -10,7 +10,7 @@ const url=process.env.NEXT_PUBLIC_URL || "http://127.0.0.1:1337";
 const getSSLC_full=async():Promise<full_APlus>=>{
     const respnse=await axios.get<sslc_full_backend>(url+"/api/informations?populate=image");
     // console.log(respnse.data.data);
-
+    
     const formattedData:CardProps[]=respnse.data.data.map((item:Information)=>{
         const output:CardProps={
             name:item.name,
@@ -18,7 +18,7 @@ const getSSLC_full=async():Promise<full_APlus>=>{
             image:getImageURL(item.image)
         }
         return output;
-    })
+    })  
 
     return formattedData;
 }

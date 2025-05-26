@@ -6,6 +6,7 @@ import svgToDataUri from "mini-svg-data-uri";
 // import colors from "tailwindcss/colors";
 // @ts-expect-error abcd
 import { default as flattenColorPalette } from "tailwindcss/lib/util/flattenColorPalette";
+import { lato } from "./fonts";
 
 const config = {
   darkMode: ["class"],
@@ -27,6 +28,7 @@ const config = {
   	},
   	extend: {
   		colors: {
+			
   			black: {
   				'100': '#000319',
   				'200': 'rgba(17, 25, 40, 0.75)',
@@ -173,7 +175,10 @@ const config = {
   			fourth: 'moveHorizontal 40s ease infinite',
   			fifth: 'moveInCircle 20s ease infinite',
   			scroll: 'scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite'
-  		}
+  		},
+		fontFamily:{
+			lato: ['Lato', 'sans-serif'],
+		}
   	}
   },
   

@@ -17,7 +17,7 @@ const Results = () => {
   useEffect(() => {
     const loaddata = async () => {
       const data = await getAchievements();
-      console.log(data);
+      // console.log(data);
       setAchievements(data);
     }
     void loaddata();

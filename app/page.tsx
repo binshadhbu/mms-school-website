@@ -15,8 +15,6 @@ export default function Home() {
       <Status />
       <Heading title="Achievements" />
       <Results />
-      <Heading title="Our Leaders" />
-      <Message />
       <Heading title="Notable Alumni " />
       <NotableAlumni  />
       <Heading title="Frequently Asked Questions" />
