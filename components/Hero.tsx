@@ -1,17 +1,20 @@
-"use client";
-import { motion } from "framer-motion";
-import React from "react";
-import { ImagesSlider } from "@/components/ui/images-slider"
-import { ImageSlider } from "@/types/frontend";
-import getImages from "@/lib/home/getImages";
-import EmblaCarousel from "@/components/slider/EmblaCarousel";
-import { useState,useEffect } from "react";
+"use client"
+import { ArrowBigLeft, ArrowBigRight, Circle, CircleDot } from "lucide-react"
+import "./image-slider.css"
+import { useState, useEffect } from "react"
+import getImages from "@/lib/home/getImages"
 
+type ImageSliderProps = {
+  images: {
+    url: string
+    alt: string
+  }[]
+}
 
 export function Hero() {
-  
-  const imgs=[ "http://127.0.0.1:1337/uploads/hero2_f02cd1be5b.jpeg", "http://127.0.0.1:1337/uploads/hero4_97eba91f72.jpg", "http://127.0.0.1:1337/uploads/hero_be65ff2cff.jpeg", "http://127.0.0.1:1337/uploads/hero3_56d596cf11.jpeg" ];
+  const [imageIndex, setImageIndex] = useState(0)
   const [images, setImages] = useState<string[]>([]);
+  // const [imageIndex, setImageIndex] = useState(0);
 
   useEffect(() => {
     const fetchImages = async () => {
@@ -22,35 +25,84 @@ export function Hero() {
     fetchImages();
   }, []);
 
-  console.log("images",images);
-  console.log("imgs",imgs);
+  function showNextImage() {
+    setImageIndex(index => {
+      if (index === images.length - 1) return 0
+      return index + 1
+    })
+  }
 
+  function showPrevImage() {
+    setImageIndex(index => {
+      if (index === 0) return images.length - 1
+      return index - 1
+    })
+  }
 
-  return (
   
-    <ImagesSlider className="h-[40rem] mb-10" images={images}>
-      <motion.div
-        initial={{
-          opacity: 0,
-          y: -80,
-        }}
-        animate={{
-          opacity: 1,
-          y: 0,
-        }}
-        transition={{
-          duration: 2,
-        }}
-        className="z-50 flex flex-col justify-center items-center"
+  return (
+    <section
+      aria-label="Image Slider"
+      className="w-full h-[46rem] relative overflow-hidden"
+    >
+      {/* <img src={images[imageIndex]} alt="" /> */}
+      <a href="#after-image-slider-controls" className="skip-link">
+        Skip Image Slider Controls
+      </a>
+      <div className="w-full h-full relative overflow-hidden flex">
+        {images.map((url, index) => (
+          <img
+            key={url}
+            src={url}
+            alt="images"
+            aria-hidden={imageIndex !== index}
+            className="img-slider-img"
+            style={{ translate: `${-100 * imageIndex}%` }}
+          />
+        ))}
+      </div>
+      <button
+        onClick={showPrevImage}
+        className="img-slider-btn"
+        style={{ left: 0 }}
+        aria-label="View Previous Image"
       >
-        <motion.p className="font-bold text-xl md:text-6xl text-center bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400 py-4">
-          MMS Educational Campus <br /> 100+ Years of Excellence
-        </motion.p>
-        {/* <button className="px-4 py-2 backdrop-blur-sm border bg-emerald-300/10 border-emerald-500/20 text-white mx-auto text-center rounded-full relative mt-4">
-          <span>Join now →</span>
-          <div className="absolute inset-x-0  h-px -bottom-px bg-gradient-to-r w-3/4 mx-auto from-transparent via-emerald-500 to-transparent" />
-        </button> */}
-      </motion.div>
-    </ImagesSlider>
-  );
+        <ArrowBigLeft aria-hidden />
+      </button>
+      <button
+        onClick={showNextImage}
+        className="img-slider-btn"
+        style={{ right: 0 }}
+        aria-label="View Next Image"
+      >
+        <ArrowBigRight aria-hidden />
+      </button>
+      <div
+        style={{
+          position: "absolute",
+          bottom: ".5rem",
+          left: "50%",
+          translate: "-50%",
+          display: "flex",
+          gap: ".25rem",
+        }}
+      >
+        {images.map((_, index) => (
+          <button
+            key={index}
+            className="img-slider-dot-btn"
+            aria-label={`View Image ${index + 1}`}
+            onClick={() => setImageIndex(index)}
+          >
+            {index === imageIndex ? (
+              <CircleDot aria-hidden />
+            ) : (
+              <Circle aria-hidden />
+            )}
+          </button>
+        ))}
+      </div>
+      <div id="after-image-slider-controls" />
+    </section>
+  )
 }

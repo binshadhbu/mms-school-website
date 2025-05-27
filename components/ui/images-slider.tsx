@@ -1,7 +1,6 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 import { cn } from "@/lib/utils";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence } from "motion/react";
 import React, { useEffect, useState } from "react";
 
 export const ImagesSlider = ({
@@ -24,6 +23,8 @@ export const ImagesSlider = ({
   const [currentIndex, setCurrentIndex] = useState(0);
   const [loading, setLoading] = useState(false);
   const [loadedImages, setLoadedImages] = useState<string[]>([]);
+
+  console.log("array in ",images);
 
   const handleNext = () => {
     setCurrentIndex((prevIndex) =>
@@ -144,7 +145,6 @@ export const ImagesSlider = ({
             exit={direction === "up" ? "upExit" : "downExit"}
             variants={slideVariants}
             className="image h-full w-full absolute inset-0 object-cover object-center"
-            alt={"images"}
           />
         </AnimatePresence>
       )}
