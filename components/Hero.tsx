@@ -18,7 +18,7 @@ export function Hero() {
 
   useEffect(() => {
     const fetchImages = async () => {
-      const imageData = await getImages({ link: "slding-image" });
+      const imageData = await getImages();
       setImages(imageData);
       // console.log(images);
     };
