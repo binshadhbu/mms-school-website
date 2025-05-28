@@ -50,8 +50,6 @@ export interface message_backend {
     }
 }
 
-
-
 export interface image_information {
     id: string;
     image: Image;
@@ -61,5 +59,12 @@ export interface image_slider_backend {
     data: {
         id: string;
         images: image_information[];
+    }
+}
+
+export interface notable_alumni_backend {
+    data:{
+        id: string;
+        notable_alumni: message_backend[];
     }
 }

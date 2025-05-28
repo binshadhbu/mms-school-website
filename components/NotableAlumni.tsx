@@ -2,12 +2,25 @@
 
 import React, { useEffect, useState } from "react";
 import { InfiniteMovingCards } from "./ui/infinite-moving-cards";
+import { notable_alumni,MessageProps } from "@/types/frontend";
+import get_notable_alumni from "@/lib/home/alumni";
 
 export function NotableAlumni() {
+  const [alumni, setAlumni] = useState<notable_alumni>([]);
+
+  useEffect(() => {
+    const fetchAlumni = async () => {
+      const data = await get_notable_alumni();
+      setAlumni(data);
+      // console.log(data);
+    };
+    fetchAlumni();
+  }, []);
+
   return (
     <div className=" rounded-md mb-10 flex flex-col antialiased bg-white dark:bg-black dark:bg-grid-white/[0.05] items-center justify-center relative overflow-hidden">
       <InfiniteMovingCards
-        items={testimonials}
+        items={alumni}
         direction="left"
         speed="slow"
         

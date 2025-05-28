@@ -11,9 +11,9 @@ export const InfiniteMovingCards = ({
   className,
 }: {
   items: {
-    quote: string;
+    message: string;
     name: string;
-    title: string;
+    position: string;
   }[];
   direction?: "left" | "right";
   speed?: "fast" | "normal" | "slow";
@@ -107,13 +107,13 @@ export const InfiniteMovingCards = ({
                     {item.name}
                   </span>
                   <span className="text-xs text-gray-400 dark:text-gray-400">
-                    {item.title}
+                    {item.position}
                   </span>
                 </div>
               </div>
 
               <span className="relative mt-5 text-sm leading-[1.6] font-lato font-bold text-gray-400 dark:text-gray-100">
-                {item.quote}
+                {item.message}
               </span>
 
             </blockquote>

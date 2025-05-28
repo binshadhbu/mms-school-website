@@ -5,30 +5,9 @@ import Image from 'next/image';
 import { lato } from "@/fonts";
 import { useEffect, useState, useRef } from 'react';
 import { StaticImport } from 'next/dist/shared/lib/get-img-props';
+import { gallery, style_gallery } from '@/types/frontend';
+import get_gallery from '@/lib/Gallery/getGallery';
 
-
-const sampleImages = [
-  { link: "/gallery/g1.jpg" },
-  { link: "/gallery/g2.jpg" },
-  { link: "/gallery/g3.jpg" },
-  { link: "/gallery/g4.jpg" },
-  { link: "/gallery/g5.jpg" },
-  { link: "/gallery/g6.jpg" },
-  { link: "/gallery/g7.jpg" },
-  { link: "/gallery/g8.jpg" },
-  { link: "/gallery/g10.JPG" },
-  { link: "/gallery/g11.JPG" },
-  { link: "/gallery/g12.JPG" },
-  { link: "/gallery/g13.JPG" },
-  { link: "/gallery/g14.JPG" },
-  { link: "/gallery/g15.JPG" },
-  { link: "/gallery/g16.JPG" },
-  { link: "/gallery/g17.JPG" },
-  { link: "/gallery/g20.jpg" },
-  { link: "/gallery/g21.jpg" },
-  { link: "/gallery/g22.jpg" },
-  { link: "/gallery/g23.jpg" },
-];
 
 function urlForImage(image: string) {
   return image;
@@ -48,31 +27,46 @@ const Page = () => {
   })
 
   useEffect(() => {
+
     const fetchImages = async () => {
       setLoading(true);
       try {
         // const images: { image: SanityImage }[] = await client.fetch(`*[_type=="gallery_images"]`);
 
-        const numImages = 8;
+        const data = await get_gallery({ link: "galleries" });
+        const sampleImages: { link: string }[] = data.map((item, index) => {
+          return { link: item };
+        })
+        console.log("formatted images",sampleImages);
+        // console.log("correct images",test);
+        // setSampleImages(formatted_images);
+
+        const numImages = sampleImages.length;
         const leftRightImageCount = Math.floor(numImages / 3);
 
         setImages({
-          left: sampleImages.map((image: { link: any; }) => urlForImage(image.link)),
+          left: sampleImages.map((image: { link: string; }) => urlForImage(image.link)),
           right: [
-            ...sampleImages.slice(leftRightImageCount).map((image: { link: string; }) => urlForImage(image.link)),
+            ...sampleImages.slice(leftRightImageCount).map((image: { link: string; }) => {
+              console.log("right", image.link);
+              return urlForImage(image.link);
+            }),
             ...sampleImages.slice(0, leftRightImageCount).map((image: { link: string; }) => urlForImage(image.link))
           ],
-          middle: sampleImages.map((image: { link: any; }) => urlForImage(image.link))
+          middle: sampleImages.map((image: { link: string; }) => urlForImage(image.link))
         })
-
+        // console.log("left", images);
       } catch (error) {
         console.error(error);
       } finally {
         setLoading(false);
       }
     };
+    // fetchGallery();
     fetchImages();
   }, []);
+
+
 
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -105,7 +99,6 @@ const Page = () => {
             scrollBehavior: 'smooth',
           }}
           >
-      
             <motion.div className="p-2 hidden md:flex gap-2 items-center justify-center flex-col" style={{ y: invertedY }}>
               {
                 images.left.map((image: string | StaticImport, index: React.Key | null | undefined) => (
@@ -128,6 +121,7 @@ const Page = () => {
                 ))
               }
             </motion.div>
+
           </div>
       }
     </div>

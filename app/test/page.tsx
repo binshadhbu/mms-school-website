@@ -1,126 +1,133 @@
-import React from 'react';
+"use client"
+import React from 'react'
+import { useScroll, motion, useTransform } from 'framer-motion';
+import Image from 'next/image';
+import { lato } from "@/fonts";
+import { useEffect, useState, useRef } from 'react';
+import { StaticImport } from 'next/dist/shared/lib/get-img-props';
+import { gallery, style_gallery } from '@/types/frontend';
+import get_gallery from '@/lib/Gallery/getGallery';
+
+
+function urlForImage(image: string) {
+  return image;
+}
 
 const Page = () => {
+  // const [sampleImages, setSampleImages] = useState<gallery>([]);
+  // const [sampleImages, setSampleImages] = useState<{ link: string }[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [images, setImages] = useState<{
+    left: string[],
+    right: string[],
+    middle: string[],
+  }>({
+    left: [],
+    right: [],
+    middle: [],
+  })
+
+  useEffect(() => {
+
+    const fetchImages = async () => {
+      setLoading(true);
+      try {
+        // const images: { image: SanityImage }[] = await client.fetch(`*[_type=="gallery_images"]`);
+
+        const data = await get_gallery({ link: "galleries" });
+        const sampleImages: { link: string }[] = data.map((item, index) => {
+          return { link: item };
+        })
+        console.log("formatted images",sampleImages);
+        // console.log("correct images",test);
+        // setSampleImages(formatted_images);
+
+        const numImages = sampleImages.length;
+        const leftRightImageCount = Math.floor(numImages / 3);
+
+        setImages({
+          left: sampleImages.map((image: { link: string; }) => urlForImage(image.link)),
+          right: [
+            ...sampleImages.slice(leftRightImageCount).map((image: { link: string; }) => {
+              console.log("right", image.link);
+              return urlForImage(image.link);
+            }),
+            ...sampleImages.slice(0, leftRightImageCount).map((image: { link: string; }) => urlForImage(image.link))
+          ],
+          middle: sampleImages.map((image: { link: string; }) => urlForImage(image.link))
+        })
+        // console.log("left", images);
+      } catch (error) {
+        console.error(error);
+      } finally {
+        setLoading(false);
+      }
+    };
+    // fetchGallery();
+    fetchImages();
+  }, []);
+
+
+
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+  });
+
+  const y = useTransform(scrollYProgress, [0, 1], ["0%", "-91.67%"]);
+  const invertedY = useTransform(scrollYProgress, [0, 1], ['-100%', '0.1%'])
+
   return (
-    <div className="font-sans text-gray-800">
-      
-      <section className="flex flex-wrap justify-between items-center p-16 bg-gray-50">
-        <div className="max-w-md">
-          <h1 className="text-4xl mb-5 leading-snug">
-            Join our friendly <br />
-            <span className="text-yellow-600 font-bold">Dreamy Cloud</span> family
-          </h1>
-          <p className="mb-5 text-gray-600">
-            We offer a safe, nurturing environment with developmentally appropriate
-            activities and opportunities for children to creatively explore and learn
-            through play
-          </p>
-          <button className="bg-pink-400 text-white px-6 py-3 rounded-md text-lg hover:bg-pink-500 transition">
-            Join Us
-          </button>
-        </div>
-        <div className="mt-5 md:mt-0">
-          <div className="w-96 h-72 bg-gray-300 border-2 border-dashed border-gray-400 rounded-xl flex items-center justify-center text-gray-600 text-lg">
-            Image Placeholder
+    <div className="h-[2000dvh] w-full relative">
+      {
+        loading ?
+          <div className="w-full h-screen flex gap-1 justify-center items-center">
+            <h1 className="text-secondary text-2xl">Loading</h1>
+            <div className="flex space-x-1">
+              {[0, 1, 2].map((i) => (
+                <motion.span
+                  key={i}
+                  className={`w-1 h-1 bg-primary rounded-full`}
+                  animate={{ y: [0, 8, 0] }}
+                  transition={{ duration: 0.6, repeat: Infinity, delay: i * 0.2 }}
+                />
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+          :
+          <div className="w-full h-screen overflow-hidden scroll-smooth sticky top-0 grid grid-cols-1 md:grid-cols-3 bg-gray-900" style={{
+            scrollBehavior: 'smooth',
+          }}
+          >
+            <motion.div className="p-2 hidden md:flex gap-2 items-center justify-center flex-col" style={{ y: invertedY }}>
+              {
+                images.left.map((image: string | StaticImport, index: React.Key | null | undefined) => (
+                  <Image src={image} alt={image} className="w-full" height={1080} width={1620} key={index} />
+                ))
+              }
+            </motion.div>
+            <motion.div className="pt-16 p-2  flex gap-2 items-center justify-center flex-col" style={{ y }}>
+              <h1 className={`text-4xl ${lato.className} font-bold py-4 text-gray-100`}> Campus Gallery </h1>
+              {
+                images.middle.map((image: string | StaticImport, index: React.Key | null | undefined) => (
+                  <Image src={image} alt="image" className="w-full" height={1080} width={1620} key={index} />
+                ))
+              }
+            </motion.div>
+            <motion.div className="p-2 hidden md:flex gap-2 items-center justify-center flex-col" style={{ y: invertedY }}>
+              {
+                images.right.map((image: string | StaticImport, index: React.Key | null | undefined) => (
+                  <Image src={image} alt="image" className="w-full" height={1080} width={1620} key={index} />
+                ))
+              }
+            </motion.div>
 
-      <section className="px-10 py-16 text-center">
-        <h2 className="text-3xl mb-2">Our programs</h2>
-        <p className="max-w-xl mx-auto mb-10 text-gray-600">
-          We offer a safe, nurturing environment with developmentally appropriate
-          activities and opportunities for children to creatively explore and learn
-          through play
-        </p>
-        <div className="flex flex-wrap justify-center gap-5">
-          {[
-            { age: '2.5 - 3 Year Olds', title: 'Discipline Program', bg: 'bg-yellow-700', text: 'text-white' },
-            { age: '3 - 5 Year Olds', title: 'Junior Nursery', bg: 'bg-teal-400', text: 'text-white' },
-            { age: '4 - 6 Year Olds', title: 'Kids Play Group', bg: 'bg-pink-400', text: 'text-white' },
-            { age: '3 - 5 Year Olds', title: 'Drawing and colors', bg: 'bg-yellow-500', text: 'text-white' },
-          ].map((item, idx) => (
-            <div
-              key={idx}
-              className={`${item.bg} ${item.text} p-5 w-60 rounded-lg text-left`}
-            >
-              <div className="font-bold text-lg mb-2 opacity-70">{`0${idx + 1}`}</div>
-              <h3 className="text-xl mb-1">{item.age}</h3>
-              <p className="mb-2">{item.title}</p>
-              <p className="text-sm text-gray-200">
-                Lorem ipsum dolor sit amet consectetur. Nunc nunc odio faucibus
-                suspendisse in nunc.
-              </p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <section className="px-10 py-16 bg-orange-50 text-center">
-        <h2 className="text-3xl mb-2">About Kindergarten</h2>
-        <p className="max-w-xl mx-auto text-gray-700">
-          Our kindergarten is built on the foundation of love, learning, and creativity.
-          We provide a safe and engaging environment where children feel free to express themselves,
-          explore new ideas, and grow into kind and confident individuals.
-        </p>
-      </section>
-
-      <section className="px-10 py-16 bg-blue-50 text-center">
-        <h2 className="text-3xl mb-6">Meet Our Team</h2>
-        <div className="flex flex-wrap justify-center gap-5">
-          {[1, 2, 3].map((member) => (
-            <div
-              key={member}
-              className="bg-white p-5 w-48 rounded-lg shadow-md flex flex-col items-center"
-            >
-              <div className="w-full h-36 bg-gray-300 rounded-lg mb-3 flex items-center justify-center text-gray-600">
-                Photo
-              </div>
-              <h3 className="text-lg font-semibold">Teacher Name</h3>
-              <p className="text-gray-600">Position</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <section className="px-10 py-16 bg-white text-center">
-        <h2 className="text-3xl mb-2">Our Gallery</h2>
-        <p className="max-w-xl mx-auto text-gray-700 mb-8">
-          Explore the wonderful world of creativity and imagination through the eyes of our little artists.
-          This gallery showcases the unique talents of our kindergarteners, highlighting their drawings,
-          crafts, and projects.
-        </p>
-        <div className="flex flex-wrap justify-center gap-5">
-          {[1, 2, 3, 4].map((img) => (
-            <div
-              key={img}
-              className="w-48 h-48 bg-gray-200 rounded-3xl flex items-center justify-center text-gray-600"
-            >
-              Image
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <section className="px-10 py-16 bg-orange-100 text-center">
-        <h2 className="text-3xl mb-3">Stay informed with all our latest news!</h2>
-        <p className="max-w-xl mx-auto text-gray-700 mb-6">
-          Subscribe to our updates to stay informed about important news, events,
-          and announcements from the daycare. We're always happy to keep you in the loop!
-        </p>
-        <div className="flex flex-wrap justify-center gap-4">
-          <input
-            type="email"
-            placeholder="Your Email"
-            className="px-4 py-2 w-64 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-pink-400"
-          />
-          <button className="bg-pink-400 text-white px-6 py-2 rounded-md hover:bg-pink-500 transition">
-            Subscribe now
-          </button>
-        </div>
-      </section>
+          </div>
+      }
     </div>
   );
-};
+}
 
 export default Page;
+

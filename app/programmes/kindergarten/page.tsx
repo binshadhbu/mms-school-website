@@ -1,44 +1,39 @@
+"use client";
 import React from 'react'
 import { InfiniteGallery } from './infinite_gallery'
+import {useState,useEffect} from 'react'
+import getImages from '@/lib/home/getImages';
+import getGallery from '@/lib/getGallery';
+import { notable_alumni,MessageProps } from "@/types/frontend";
+import get_Teachers_kindergarten from '@/lib/kindergarten';
 
-const testimonials = [
-  {
-    link: "/logo.jpg"
-  },
-  {
-    link: "/logo.jpg"
-  },
-  {
-    link: "/logo.jpg"
-  },
-  {
-    link: "/logo.jpg"
-  }
-];
 
-const teachers = [
-  {
-    link: "/logo.jpg",
-    name: 'Binshadh',
-    postion: "Kindergarten Teacher"
-  },
-  {
-    link: "/logo.jpg",
-    name: 'Aisha',
-    postion: "Assistant Teacher"
-  },
-  {
-    link: "/logo.jpg",
-    name: 'Rahim',
-    postion: "Music & Activities"
-  },
-  {
-    link: "/logo.jpg",
-    name: 'Sara',
-    postion: "Art & Crafts"
-  }
-];
-const page = () => {
+
+const Page = () => {
+
+  const [testimonials, setTestimonials] = useState<string[]>([]);
+  const [teachers, setTeachers] = useState<notable_alumni>([]);
+  // const [imageIndex, setImageIndex] = useState(0);
+
+  useEffect(() => {
+    const fetchImages = async () => {
+      const imageData = await getGallery({ link: "kinder-garten-galleries" });
+      setTestimonials(imageData);
+      console.log("output of kindergarten",imageData);
+    };
+    fetchImages();
+  }, []);
+
+  useEffect(()=>{
+    const fetchTeachers = async () => {
+      const data = await get_Teachers_kindergarten();
+      setTeachers(data);
+      console.log("output of teachers",data);
+    };
+    fetchTeachers();
+    
+  },[]);
+
   return (
     <div className='bg-[#F8F8F8]'>
       {/* intro */}
@@ -105,6 +100,7 @@ const page = () => {
         </p>
       </section>
 
+      {/* Meet our team */}
       <section className="px-10 py-16 bg-blue-50 text-center">
         <h2 className="text-3xl mb-6">Meet Our Team</h2>
         <div className="flex flex-wrap justify-center gap-5">
@@ -115,13 +111,13 @@ const page = () => {
             >
               <div className="w-full h-36 bg-gray-300 rounded-lg mb-3 flex items-center justify-center text-gray-600">
                 <img
-                  src={item.link}
+                  src={item.image}
                   alt={item.name}
                   className="object-cover h-40 w-40 rounded-xl shadow-lg"
                 />
               </div>
               <h3 className="text-lg font-semibold">{item.name}</h3>
-              <p className="text-gray-600">{item.postion}</p>
+              <p className="text-gray-600">{item.position}</p>
             </div>
           ))}
         </div>
@@ -212,4 +208,4 @@ const page = () => {
 
 
 
-export default page
+export default Page

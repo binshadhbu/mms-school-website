@@ -18,7 +18,7 @@ export function Hero() {
 
   useEffect(() => {
     const fetchImages = async () => {
-      const imageData = await getImages({ link: "slding-image" });
+      const imageData = await getImages({ link: "image-sliders" });
       setImages(imageData);
       // console.log(images);
     };
@@ -39,7 +39,13 @@ export function Hero() {
     })
   }
 
-  
+  useEffect(() => {
+    const interval = setInterval(() => {
+      showNextImage();
+    }, 3000);
+    return () => clearInterval(interval);
+  }, [images.length]);
+
   return (
     <section
       aria-label="Image Slider"
@@ -95,9 +101,9 @@ export function Hero() {
             onClick={() => setImageIndex(index)}
           >
             {index === imageIndex ? (
-              <CircleDot aria-hidden />
+              <CircleDot className="" />
             ) : (
-              <Circle aria-hidden />
+              <Circle className="" />
             )}
           </button>
         ))}

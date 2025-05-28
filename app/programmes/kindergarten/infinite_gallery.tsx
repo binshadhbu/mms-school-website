@@ -10,11 +10,7 @@ export const InfiniteGallery = ({
   pauseOnHover = true,
   className,
 }: {
-  items: {
-    quote: string;
-    name: string;
-    title: string;
-  }[];
+  items: string[];
   direction?: "left" | "right";
   speed?: "fast" | "normal" | "slow";
   pauseOnHover?: boolean;
@@ -73,7 +69,7 @@ export const InfiniteGallery = ({
     <div
       ref={containerRef}
       className={cn(
-        "scroller relative z-20 w-full overflow-hidden",
+        "scroller relative z-10 w-full overflow-hidden",
         className,
       )}
     >
@@ -87,14 +83,11 @@ export const InfiniteGallery = ({
       >
         {items.map((item, idx) => (
           <li
-            className="relative shrink-0 rounded-2xl shadow-lg border  w-64 h-64 overflow-hidden dark:border-zinc-700 dark:bg-gradient-to-b dark:from-zinc-800 dark:to-zinc-900 transition-transform "
+            className="relative  rounded-2xl shadow-lg border  w-96 h-72 overflow-hidden dark:border-zinc-700 dark:bg-gradient-to-b dark:from-zinc-800 dark:to-zinc-900 transition-transform "
             key={idx}
           >
-            <div className="flex items-center justify-center h-full w-full p-1">
-            <p>{item.quote}</p>
-            <p>{item.name}</p>
-            <p>{item.title}</p>
-
+            <div className="flex items-center justify-center h-full w-full p-1 overflow-hidden rounded-2xl">
+              <p><img src={item} alt="" className="rounded-2xl w-96 h-72"/></p>
             </div>
           </li>
         ))}
