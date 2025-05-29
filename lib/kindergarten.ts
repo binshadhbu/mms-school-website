@@ -12,7 +12,7 @@ interface Information{
 }
 
 const get_Teachers_kindergarten=async():Promise<notable_alumni>=>{
-    const respnse=await axios.get<notable_alumni_backend>(url+"/api/kindergarten-teachers?populate=image");
+    const respnse=await axios.get(url+"/api/kindergarten-teachers?populate=image");
     // console.log(respnse.data.data);
     
     const formattedData:MessageProps[]=respnse.data.data.map((item:Information)=>{

@@ -112,7 +112,7 @@ export const InfiniteMovingCards = ({
                 </div>
               </div>
 
-              <span className="relative mt-5 text-sm leading-[1.6] font-lato font-bold text-gray-400 dark:text-gray-100">
+              <span className="relative mt-5 text-sm leading-[1.6] font-lato font-normal text-gray-400 dark:text-gray-100">
                 {item.message}
               </span>
 

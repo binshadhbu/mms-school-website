@@ -10,11 +10,11 @@ interface LinkProps {
 
 const getImages = async (): Promise<string[]> => {
     const input = url + '/api/image-sliders/?populate=image';
-    const response = await axios.get<image_slider_backend>(input);
+    const response = await axios.get(input);
     console.log("response getImage",response.data.data);
 
     const images = response.data.data;
-    const imageUrls = images.map((item: Image) => {
+    const imageUrls = images.map((item: any) => {
         console.log("item",item.image);
         return getImageURL(item.image)
     });

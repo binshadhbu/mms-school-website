@@ -7,10 +7,10 @@ const url=process.env.NEXT_PUBLIC_URL || "http://127.0.0.1:1337";
 
 
 const get_notable_alumni=async():Promise<notable_alumni>=>{
-    const respnse=await axios.get<notable_alumni_backend>(url+"/api/notable-alumnies?populate=image");
+    const respnse=await axios.get<any>(url+"/api/notable-alumnies?populate=image");
     // console.log(respnse.data.data);
     
-    const formattedData:MessageProps[]=respnse.data.data.map((item:Information)=>{
+    const formattedData:MessageProps[]=respnse.data.data.map((item:any)=>{
         const output:MessageProps={
             name:item.name,
             position:item.position,

@@ -8,7 +8,7 @@ import { lss_backend } from "@/types/bakcend";
 const url = process.env.NEXT_PUBLIC_URL ||  "http://127.0.0.1:1337";
 
 const getLSSWinners = async (): Promise<lssWinners> => {
-    const response = await axios.get<lss_backend>(url + "/api/lss-winners/?populate=image");
+    const response = await axios.get(url + "/api/lss-winners/?populate=image");
     // console.log(respnse.data.data);
 
     const formattedData: CardProps[] = response.data.data.map((item: Information) => {
@@ -24,7 +24,7 @@ const getLSSWinners = async (): Promise<lssWinners> => {
 }
 
 const getUSSWinners = async (): Promise<ussWinners> => {
-    const response = await axios.get<lss_backend>(url + "/api/uss-winners/?populate=image");
+    const response = await axios.get(url + "/api/uss-winners/?populate=image");
     // console.log(respnse.data.data);
 
     const formattedData: CardProps[] = response.data.data.map((item: Information) => {
