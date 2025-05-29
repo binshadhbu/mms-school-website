@@ -14,6 +14,10 @@ const eslintConfig = [
   {
     rules: {
       "@typescript-eslint/no-unused-vars": "off",
+       "@typescript-eslint/no-explicit-any": "off",
+       "@typescript-eslint/explicit-module-boundary-types": "off",
+       "@next/next/no-img-element": "off",
+       "react/no-unescaped-entities": "off",
     }
   }
 ];

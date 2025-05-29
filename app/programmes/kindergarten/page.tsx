@@ -1,10 +1,10 @@
 "use client";
 import React from 'react'
 import { InfiniteGallery } from './infinite_gallery'
-import {useState,useEffect} from 'react'
+import { useState, useEffect } from 'react'
 import getImages from '@/lib/home/getImages';
 import getGallery from '@/lib/getGallery';
-import { notable_alumni,MessageProps } from "@/types/frontend";
+import { notable_alumni, MessageProps } from "@/types/frontend";
 import get_Teachers_kindergarten from '@/lib/kindergarten';
 
 
@@ -19,45 +19,57 @@ const Page = () => {
     const fetchImages = async () => {
       const imageData = await getGallery({ link: "kinder-garten-galleries" });
       setTestimonials(imageData);
-      console.log("output of kindergarten",imageData);
+      console.log("output of kindergarten", imageData);
     };
     fetchImages();
   }, []);
 
-  useEffect(()=>{
+  useEffect(() => {
     const fetchTeachers = async () => {
       const data = await get_Teachers_kindergarten();
       setTeachers(data);
-      console.log("output of teachers",data);
+      console.log("output of teachers", data);
     };
     fetchTeachers();
-    
-  },[]);
+
+  }, []);
 
   return (
     <div className='bg-[#F8F8F8]'>
       {/* intro */}
-      <div className="flex bg-[#F1F1F1]">
-        <div className="pl-20 mb-5 pt-20 mt-20 relative z-10 w-2/5 flex flex-col justify-center h-full max-w-md">
-          <p className=" mb-5 text-3xl font-lato font-semibold">
+
+      <div className="flex flex-col-reverse md:flex-row bg-[#F1F1F1]">
+        {/* Text Section */}
+        <div className="px-6 py-10 md:py-20 md:px-20 md:w-2/5 flex flex-col justify-center max-w-xl z-10">
+          <p className="mb-5 text-2xl sm:text-3xl md:text-4xl font-lato font-semibold">
             Join our friendly <br />
             <span>
               <span className="text-pink-500">Dreamy</span>{' '}
               <span className="text-pink-500">cloudy</span> family
             </span>
           </p>
-          <p className="w-full text-gray-600 font-sans">
+          <p className="text-gray-600 font-sans text-sm sm:text-base">
             We offer a safe, nurturing environment with developmentally appropriate activities and
-            opportunities for children to creatively explore and learn through play
+            opportunities for children to creatively explore and learn through play.
           </p>
         </div>
-        <img
-          src="/Kindergarten/intro.jpg"
-          alt="image"
-          className="w-2/3 overflow-hidden [mask-image:linear-gradient(to_left,transparent,white_70,white_10,transparent)] "
-          style={{ borderRadius: '0 1rem 1rem 0' }}
-        />
+
+        {/* Image Section */}
+        <div className="w-full md:w-3/5 px-2 md:p-0 relative rounded-xl overflow-hidden">
+          <img
+            src="/Kindergarten/intro.jpg"
+            alt="Kindergarten"
+            className="w-full h-full object-cover md:rounded-l-[1rem] md:rounded-r-none rounded-t-[1rem] md:rounded-t-none"
+            style={{
+              maskImage:
+                'linear-gradient(to left, transparent, white 70%, white 10%, transparent)',
+              WebkitMaskImage:
+                'linear-gradient(to left, transparent, white 70%, white 10%, transparent)',
+            }}
+          />
+        </div>
       </div>
+
 
       {/* Programs */}
       <section className="px-10 py-16 text-center">
@@ -91,14 +103,48 @@ const Page = () => {
       </section>
 
       {/* About Kindergarten */}
-      <section className="px-10 py-16 bg-orange-50 text-center">
-        <h2 className="text-3xl mb-2">About Kindergarten</h2>
-        <p className="max-w-xl mx-auto text-gray-700">
-          Our kindergarten is built on the foundation of love, learning, and creativity.
-          We provide a safe and engaging environment where children feel free to express themselves,
-          explore new ideas, and grow into kind and confident individuals.
-        </p>
-      </section>
+
+      <div className="flex flex-col lg:flex-row mt-20 bg-orange-50 px-6 sm:px-10 py-10 gap-8">
+        {/* Image Section */}
+        <div className="w-full lg:w-2/5 rounded-3xl">
+          <img
+            src="/Kindergarten/intro.jpg"
+            className="rounded-2xl w-full h-auto object-cover"
+            alt="about"
+          />
+        </div>
+
+        {/* Text Section */}
+        <div className="w-full lg:w-3/5 flex flex-col justify-center">
+          <p className="font-lato text-2xl sm:text-3xl font-semibold text-gray-600 mb-4">
+            About our Kindergarten
+          </p>
+          <p className="text-sm sm:text-base text-gray-700 mb-5">
+            Our kindergarten program is designed to foster curiosity, creativity, and a love for learning
+            in every child. With experienced teachers and a supportive environment, we help children build
+            strong foundations for their future education and personal growth.
+          </p>
+          <ul className="space-y-2">
+            <li className="text-gray-600 text-sm sm:text-base flex items-start">
+              <span className="text-green-800 mr-2 mt-0.5">✔️</span>
+              Safe and nurturing environment for every child
+            </li>
+            <li className="text-gray-600 text-sm sm:text-base flex items-start">
+              <span className="text-green-800 mr-2 mt-0.5">✔️</span>
+              Experienced and caring teachers
+            </li>
+            <li className="text-gray-600 text-sm sm:text-base flex items-start">
+              <span className="text-green-800 mr-2 mt-0.5">✔️</span>
+              Creative play-based learning activities
+            </li>
+            <li className="text-gray-600 text-sm sm:text-base flex items-start">
+              <span className="text-green-800 mr-2 mt-0.5">✔️</span>
+              Focus on social, emotional, and academic growth
+            </li>
+          </ul>
+        </div>
+      </div>
+
 
       {/* Meet our team */}
       <section className="px-10 py-16 bg-blue-50 text-center">
@@ -142,35 +188,7 @@ const Page = () => {
 
 
 
-      <div className='flex mt-20'>
-        <div className='w-2/5 rounded-3xl px-10 pt-10'>
-          <img src="/Kindergarten/intro.jpg" className='rounded-2xl overflow-hidden' alt="about" />
-        </div>
-        <div className="w-2/5 ">
-          <p className="font-lato text-3xl font-semibold justify-center pt-10 text-gray-600">About our Kindergarten</p>
-          <p className="text-sm text-gray-700 ">
-            Our kindergarten program is designed to foster curiosity, creativity, and a love for learning in every child. With experienced teachers and a supportive environment, we help children build strong foundations for their future education and personal growth.
-          </p>
-          <ul className='mt-5'>
-            <li className="text-gray-600 text-base mb-2 flex items-center">
-              <span className="text-green-800 mr-2">✔️</span>
-              Safe and nurturing environment for every child
-            </li>
-            <li className="text-gray-600 text-base mb-2 flex items-center">
-              <span className="text-green-800 mr-2">✔️</span>
-              Experienced and caring teachers
-            </li>
-            <li className="text-gray-600 text-base mb-2 flex items-center">
-              <span className="text-green-800 mr-2">✔️</span>
-              Creative play-based learning activities
-            </li>
-            <li className="text-gray-600 text-base mb-2 flex items-center">
-              <span className="text-green-800 mr-2">✔️</span>
-              Focus on social, emotional, and academic growth
-            </li>
-          </ul>
-        </div>
-      </div>
+
 
 
       <div className='mt-20 bg-orange-100 mb-10  content-center'>

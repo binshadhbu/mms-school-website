@@ -1,6 +1,6 @@
 import React from "react";
 
-const Activities = () => {
+const Page = () => {
   return (
     <div className="bg-gray-100">
       {/* Hero Section */}
@@ -98,4 +98,4 @@ const Activities = () => {
   );
 };
 
-export default Activities;
+export default Page;

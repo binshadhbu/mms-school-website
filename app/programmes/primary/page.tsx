@@ -7,7 +7,7 @@ import { lssWinners } from '@/types/frontend';
 import { CardProps } from '@/types/frontend';
 import { WinnerCard } from '@/components/cards/WinnerCard'
 import { getLSSWinners, getUSSWinners } from '@/lib/achievements/primary';
-
+import { Feature } from '../common/Features';
 import {
   FaBook,
   FaPaintBrush,
@@ -19,11 +19,31 @@ import {
 
 const Page = () => {
   const facilities = [
-    { name: "Library", icon: <FaBook className="text-blue-500 text-3xl" /> },
-    { name: "Art Room", icon: <FaPaintBrush className="text-pink-500 text-3xl" /> },
-    { name: "Music Room", icon: <FaMusic className="text-purple-500 text-3xl" /> },
-    { name: "Playground", icon: <FaRunning className="text-green-500 text-3xl" /> },
-    { name: "Bus Service", icon: <FaBus className="text-orange-500 text-3xl" /> },
+    {
+      title: "Library",
+      icon: <FaBook className="text-blue-500 text-3xl" />,
+      description: "A well-stocked library to foster reading habits and research skills."
+    },
+    {
+      title: "Art Room",
+      icon: <FaPaintBrush className="text-pink-500 text-3xl" />,
+      description: "A creative space for students to express themselves through art."
+    },
+    {
+      title: "Music Room",
+      icon: <FaMusic className="text-purple-500 text-3xl" />,
+      description: "A dedicated room for learning instruments and vocal music."
+    },
+    {
+      title: "Playground",
+      icon: <FaRunning className="text-green-500 text-3xl" />,
+      description: "A safe and spacious playground for physical activities and games."
+    },
+    {
+      title: "Bus Service",
+      icon: <FaBus className="text-orange-500 text-3xl" />,
+      description: "Reliable transportation ensuring safe travel to and from school."
+    },
   ];
 
   const faculty = [
@@ -34,56 +54,63 @@ const Page = () => {
   ];
 
   const [lss, setLSS] = React.useState<lssWinners>([]);
-    const [uss, setUss] = React.useState<lssWinners>([]);
+  const [uss, setUss] = React.useState<lssWinners>([]);
 
-    useEffect(() => {
-        const loaddata = async () => {
-            const lss_data = await getLSSWinners();
-            setLSS(lss_data);
-            const uss_data = await getUSSWinners();
-            setUss(uss_data);
-            // console.log("LSS Winners", lss);
-        }
-        void loaddata();
-    }, []);
+  useEffect(() => {
+    const loaddata = async () => {
+      const lss_data = await getLSSWinners();
+      setLSS(lss_data);
+      const uss_data = await getUSSWinners();
+      setUss(uss_data);
+      // console.log("LSS Winners", lss);
+    }
+    void loaddata();
+  }, []);
 
   return (
     <div className="bg-[#F8F8F8]">
-      
-      <section className="flex bg-[#F1F1F1]">
-        <div className="pl-20 mb-5 pt-20 mt-20 relative z-10 w-2/5 flex flex-col justify-center h-full max-w-md">
-          <p className="mb-5 text-3xl font-lato font-semibold">
+
+      <section className="flex flex-col-reverse lg:flex-row bg-[#F1F1F1] overflow-hidden">
+        {/* Text Section */}
+        <div className="px-6 sm:px-10 lg:pl-20 pt-16 lg:pt-20 mb-10 lg:mb-5 w-full lg:w-2/5 flex flex-col justify-center max-w-full lg:max-w-md z-10">
+          <p className="mb-4 text-2xl sm:text-3xl font-lato font-semibold">
             Welcome to Our <br />
             <span className="text-orange-500">Primary School Division</span>
           </p>
-          <p className="w-full text-gray-600 font-sans">
+          <p className="text-sm sm:text-base text-gray-600 font-sans">
             A joyful beginning to lifelong learning. We nurture young minds with care,
             curiosity, and creativity in a warm and welcoming environment.
           </p>
         </div>
 
-        <img
-          src="/common/hero1.jpeg"
-          alt="Primary School Division"
-          className="w-2/3 overflow-hidden [mask-image:linear-gradient(to_left,transparent,white_70,white_10,transparent)]"
-          style={{ borderRadius: '0 1rem 1rem 0' }}
-        />
+        {/* Image Section */}
+        <div className="w-full lg:w-3/5">
+          <img
+            src="/common/hero1.jpeg"
+            alt="Primary School Division"
+            className="w-full h-auto object-cover lg:rounded-l-none rounded-t-xl lg:rounded-r-xl"
+            style={{
+              maskImage:
+                'linear-gradient(to left, transparent 0%, white 40%, white 60%, transparent 100%)',
+              WebkitMaskImage:
+                'linear-gradient(to left, transparent 0%, white 40%, white 60%, transparent 100%)',
+            }}
+          />
+        </div>
       </section>
+
 
       {/* Facilities Section */}
       <section className="px-10 py-16 bg-yellow-50 text-center rounded-xl shadow-md mx-4 my-10">
         <h2 className="text-3xl mb-6 text-gray-700 font-bold">Primary School Facilities</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 mt-8">
-          {facilities.map((facility, index) => (
-            <div
-              key={index}
-              className="bg-white p-6 rounded-xl shadow-lg flex flex-col items-center transition hover:scale-105"
-            >
-              {facility.icon}
-              <p className="mt-4 text-lg font-semibold text-gray-800">{facility.name}</p>
-            </div>
-          ))}
-        </div>
+
+        <section className="px-10 py-16 bg-pink-50 text-center rounded-xl shadow-md mx-4 my-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4  relative z-10 py-10 max-w-7xl mx-auto">
+            {facilities.map((feature, index) => (
+              <Feature key={feature.title} {...feature} index={index} />
+            ))}
+          </div>
+        </section>
       </section>
 
       {/* Faculty Section */}
@@ -114,36 +141,36 @@ const Page = () => {
         </div>
       </section>
 
-       <section className="px-10 py-16 bg-orange-50 text-center rounded-xl shadow-md mx-4 my-10">
-              <h2 className="text-4xl font-extrabold mb-10 text-gray-800">Let Our Results Speak</h2>
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 justify-center">
-                {lss.map((student: CardProps, index) => (
-                  <div
-                    key={index}
-                    className="bg-white p-4 rounded-xl shadow-md text-center"
-                  >
-                    <div className="w-32 h-32 mx-auto rounded-full bg-gray-200 flex items-center justify-center mb-3 overflow-hidden">
-                    <img src={student.image} alt="" className='' />
-                    </div>
-                    <h3 className="text-lg font-semibold text-gray-800">{student.name}</h3>
-                    <p className="text-pink-500 font-medium">{student.achievement}</p>
-                  </div>
-                ))}
-
-                {uss.map((student: CardProps, index) => (
-                  <div
-                    key={index}
-                    className="bg-white p-4 rounded-xl shadow-md text-center"
-                  >
-                    <div className="w-32 h-32 mx-auto rounded-full bg-gray-200 flex items-center justify-center mb-3 overflow-hidden">
-                    <img src={student.image} alt="" className='' />
-                    </div>
-                    <h3 className="text-lg font-semibold text-gray-800">{student.name}</h3>
-                    <p className="text-pink-500 font-medium">{student.achievement}</p>
-                  </div>
-                ))}
+      <section className="px-10 py-16 bg-orange-50 text-center rounded-xl shadow-md mx-4 my-10">
+        <h2 className="text-4xl font-extrabold mb-10 text-gray-800">Let Our Results Speak</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 justify-center">
+          {lss.map((student: CardProps, index) => (
+            <div
+              key={index}
+              className="bg-white p-4 rounded-xl shadow-md text-center"
+            >
+              <div className="w-32 h-32 mx-auto rounded-full bg-gray-200 flex items-center justify-center mb-3 overflow-hidden">
+                <img src={student.image} alt="" className='' />
               </div>
-            </section>
+              <h3 className="text-lg font-semibold text-gray-800">{student.name}</h3>
+              <p className="text-pink-500 font-medium">{student.achievement}</p>
+            </div>
+          ))}
+
+          {uss.map((student: CardProps, index) => (
+            <div
+              key={index}
+              className="bg-white p-4 rounded-xl shadow-md text-center"
+            >
+              <div className="w-32 h-32 mx-auto rounded-full bg-gray-200 flex items-center justify-center mb-3 overflow-hidden">
+                <img src={student.image} alt="" className='' />
+              </div>
+              <h3 className="text-lg font-semibold text-gray-800">{student.name}</h3>
+              <p className="text-pink-500 font-medium">{student.achievement}</p>
+            </div>
+          ))}
+        </div>
+      </section>
     </div>
   );
 };

@@ -3,6 +3,7 @@ import { ArrowBigLeft, ArrowBigRight, Circle, CircleDot } from "lucide-react"
 import "./image-slider.css"
 import { useState, useEffect } from "react"
 import getImages from "@/lib/home/getImages"
+import { IconArrowNarrowRight,IconArrowNarrowLeft } from "@tabler/icons-react";
 
 type ImageSliderProps = {
   images: {
@@ -18,7 +19,7 @@ export function Hero() {
 
   useEffect(() => {
     const fetchImages = async () => {
-      const imageData = await getImages({ link: "image-sliders" });
+      const imageData = await getImages();
       setImages(imageData);
       // console.log(images);
     };
@@ -41,15 +42,16 @@ export function Hero() {
 
   useEffect(() => {
     const interval = setInterval(() => {
+      console.log("showNextImage called");
       showNextImage();
     }, 3000);
     return () => clearInterval(interval);
-  }, [images.length]);
+  },);
 
   return (
     <section
       aria-label="Image Slider"
-      className="w-full h-[46rem] relative overflow-hidden"
+      className="w-full h-[30rem] md:h-[46rem] relative overflow-hidden"
     >
       {/* <img src={images[imageIndex]} alt="" /> */}
       <a href="#after-image-slider-controls" className="skip-link">
@@ -69,11 +71,11 @@ export function Hero() {
       </div>
       <button
         onClick={showPrevImage}
-        className="img-slider-btn"
-        style={{ left: 0 }}
+        className="img-slider-btn font-bold"
+        style={{ left: 0, width: "3.5rem" }}
         aria-label="View Previous Image"
       >
-        <ArrowBigLeft aria-hidden />
+        <IconArrowNarrowLeft className="text-neutral-600 dark:text-neutral-200" style={{ width: "3rem", height: "2.5rem" }} />
       </button>
       <button
         onClick={showNextImage}
@@ -81,7 +83,7 @@ export function Hero() {
         style={{ right: 0 }}
         aria-label="View Next Image"
       >
-        <ArrowBigRight aria-hidden />
+        <IconArrowNarrowRight className="text-neutral-600 dark:text-neutral-200"  style={{ width: "3rem", height: "2.5rem" }} />
       </button>
       <div
         style={{
@@ -93,20 +95,7 @@ export function Hero() {
           gap: ".25rem",
         }}
       >
-        {images.map((_, index) => (
-          <button
-            key={index}
-            className="img-slider-dot-btn"
-            aria-label={`View Image ${index + 1}`}
-            onClick={() => setImageIndex(index)}
-          >
-            {index === imageIndex ? (
-              <CircleDot className="" />
-            ) : (
-              <Circle className="" />
-            )}
-          </button>
-        ))}
+        
       </div>
       <div id="after-image-slider-controls" />
     </section>

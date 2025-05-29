@@ -106,31 +106,6 @@ const About = () => {
             <Message link='message-manager' />
 
             <TimelineDemo />
-
-            {/* <TimelineDemo /> */}
-
-            {/* Parents Association */}
-            <section className="max-w-6xl mx-auto py-16 px-6">
-                <h2 className="text-3xl font-semibold text-center mb-10">
-                    Parents Association
-                </h2>
-                <div className="grid md:grid-cols-2 gap-8">
-                    <div className="bg-white p-6 shadow-lg rounded-lg">
-                        <h3 className="text-xl font-bold">[Parent&aposs Name]</h3>
-                        <p className="text-gray-700">
-                            Testimonial or involvement details
-                        </p>
-                    </div>
-                    <div className="bg-white p-6 shadow-lg rounded-lg">
-                        <h3 className="text-xl font-bold">[Parent&aposs Name]</h3>
-                        <p className="text-gray-700">
-                            Testimonial or involvement details
-                        </p>
-                    </div>
-                </div>
-            </section>
-
-
         </div>
     );
 };

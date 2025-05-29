@@ -18,14 +18,14 @@ export default function Navbar() {
   const navItems = [
     { name: "About", href: "/about" },
 
-    { 
-      name: "Programmes", 
-      href: "#", 
+    {
+      name: "Programmes",
+      href: "#",
       children: [
         { name: "Kindergarten", href: "/programmes/kindergarten" },
         { name: "Primary", href: "/programmes/primary" },
         { name: "High School", href: "/programmes/highschool" },
-      ] 
+      ]
     },
 
     { name: "Activities", href: "/activities" },
@@ -33,15 +33,16 @@ export default function Navbar() {
   ];
 
   return (
-    <div className={`${lato.className} `}>
-      <nav className="block  w-full max-w-screen px-4 py-4 mx-auto bg-gray-900  sticky top-3 shadow lg:px-2 backdrop-blur-lg backdrop-saturate-150 z-[9999]">
+    <div className={`${lato.className} font-lato `}>
+      <nav className="block  w-full max-w-screen px-2 py-1 mx-auto bg-gray-900  sticky top-3 shadow lg:px-2 backdrop-blur-lg backdrop-saturate-150 z-[9999]">
         <div className="container flex flex-wrap items-center justify-between mx-auto text-slate-800">
           <Link
             href="/"
-            className=" block cursor-pointer py-1.5 text-white font-extrabold text-2xl"
+            className=" block cursor-pointer py-1.5 text-white font-extrabold text-2xl flex"
           >
-            <h1 className="sm:hidden block">MMS</h1>
-            <h1 className="hidden sm:block">MMS Educational campus </h1>
+            <img src="/logo.png" className="w-12 h-12 rounded-full" alt="" />
+
+            <h1 className="hidden sm:block pt-2 px-2">MMS Educational campus </h1>
             {/* <Image src="/logo.svg" alt="Logo" width={40} height={40} /> */}
           </Link>
 
@@ -79,7 +80,7 @@ export default function Navbar() {
                 href="/"
                 className="cursor-pointer text-white font-extrabold text-xl pt-4 ps-4"
               >
-                MMS
+                <img src="/logo.png" className="w-12 h-12 rounded-full" alt="" />
               </Link>
               <button
                 onClick={toggleMobileMenu}
@@ -102,28 +103,32 @@ export default function Navbar() {
             </div>
             <ul className="flex flex-col h-full gap-4 p-4">
               {navItems.map((item, index) => (
-                <li
-                  key={index}
-                  className="flex items-center p-1 text-lg gap-x-2 text-white hover:text-white font-extrabold"
-                >
-                  <Link href={item.href} className="flex items-center">
+                <li key={index} className="flex flex-col">
+                  <Link
+                    href={item.href}
+                    className="flex items-center p-2 text-lg gap-x-2 text-white hover:text-gray-300 font-extrabold"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
                     {item.name}
                   </Link>
                   {item.children && (
-                    <ul className="mt-2 ml-4 space-y-2">
+                    <ul className="ml-4 mt-1 flex flex-col gap-1">
                       {item.children.map((subItem, subIndex) => (
                         <li key={subIndex}>
-                          <Link href={subItem.href} className="text-white hover:text-gray-300">
+                          <Link
+                            href={subItem.href}
+                            className="block px-2 py-1 text-white hover:text-gray-300 font-normal"
+                            onClick={() => setIsMobileMenuOpen(false)}
+                          >
                             {subItem.name}
                           </Link>
-
+                        </li>
+                      ))}
+                    </ul>
+                  )}
                 </li>
               ))}
             </ul>
-            )}
-            </li>
-          ))}
-        </ul>
           </div>
 
           {/* Desktop Menu */}
@@ -137,7 +142,7 @@ export default function Navbar() {
                   <Link href={item.href} className="flex items-center">
                     {item.name}
                   </Link>
-                  {item.children && ( 
+                  {item.children && (
                     <ul className="absolute left-0 top-full hidden space-y-2 bg-slate-700 text-white group-hover:block z-50 shadow-lg rounded-lg">
                       {item.children.map((subItem, subIndex) => (
                         <li key={subIndex}>
@@ -146,7 +151,7 @@ export default function Navbar() {
                           </Link>
                         </li>
                       ))}
-                      </ul>
+                    </ul>
                   )}
 
                 </li>

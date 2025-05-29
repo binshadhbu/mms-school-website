@@ -8,21 +8,48 @@ import {
   FaBasketballBall,
   FaMusic,
   FaHospital,
-  FaUser
+  FaBus
 } from "react-icons/fa";
 import { full_APlus } from '@/types/frontend';
 import getSSLC_full from '@/lib/achievements/highschool';
 import { CardProps } from '@/types/frontend';
 import { lato } from '@/fonts';
+// import { FeaturesSectionDemo } from '../common/Features';
+import { FeaturesSectionDemo } from '../common/Features';
+import { Feature } from '../common/Features';
 
 const Page = () => {
   const facilities = [
-    { name: "Library", icon: <FaBook className="text-blue-500 text-3xl" /> },
-    { name: "Science Labs", icon: <FaFlask className="text-green-500 text-3xl" /> },
-    { name: "Computer Labs", icon: <FaLaptop className="text-gray-500 text-3xl" /> },
-    { name: "Sports Complex", icon: <FaBasketballBall className="text-orange-500 text-3xl" /> },
-    { name: "Bus Service", icon: <FaMusic className="text-purple-500 text-3xl" /> },
-    { name: "Medical Room", icon: <FaHospital className="text-red-500 text-3xl" /> },
+    {
+      title: "Library",
+      icon: <FaBook className="text-blue-500 text-3xl" />,
+      description: "A well-stocked library with a wide range of books and resources."
+    },
+    {
+      title: "Science Labs",
+      icon: <FaFlask className="text-green-500 text-3xl" />,
+      description: "Modern labs for hands-on experiments in Physics, Chemistry, and Biology."
+    },
+    {
+      title: "Computer Labs",
+      icon: <FaLaptop className="text-gray-500 text-3xl" />,
+      description: "State-of-the-art computer labs with high-speed internet access."
+    },
+    {
+      title: "Sports Complex",
+      icon: <FaBasketballBall className="text-orange-500 text-3xl" />,
+      description: "Facilities for basketball, football, athletics, and more."
+    },
+    {
+      title: "Bus Service",
+      icon: <FaBus className="text-purple-500 text-3xl" />,
+      description: "Safe and reliable transportation for students across the city."
+    },
+    {
+      title: "Medical Room",
+      icon: <FaHospital className="text-red-500 text-3xl" />,
+      description: "On-campus medical care for emergencies and first aid."
+    },
   ];
 
   const faculty = [
@@ -44,43 +71,48 @@ const Page = () => {
 
   return (
     <div className="bg-[#F8F8F8]">
-      <section className="flex bg-[#F1F1F1]">
-
-        <div className="pl-20 mb-5 pt-20 mt-20 relative z-10 w-2/5 flex flex-col justify-center h-full max-w-md">
-          <p className="mb-5 text-3xl font-lato font-semibold">
+      <section className="flex flex-col-reverse lg:flex-row bg-[#F1F1F1] overflow-hidden">
+        {/* Text Section */}
+        <div className="px-6 sm:px-10 lg:pl-20 pt-16 lg:pt-20 mb-10 lg:mb-5 w-full lg:w-2/5 flex flex-col justify-center max-w-full lg:max-w-md z-10">
+          <p className="mb-4 text-2xl sm:text-3xl font-lato font-semibold">
             Welcome to Our <br />
             <span className="text-orange-500">High School Division</span>
           </p>
-          <p className="w-full text-gray-600 font-lato font-normal">
+          <p className="text-sm sm:text-base text-gray-600 font-lato font-normal">
             Where excellence meets opportunity. We prepare students for the future with advanced
             academics, sports, and clubs to spark every interest.
           </p>
         </div>
 
-
-        <img
-          src="/common/hero2.jpeg"
-          alt="High School Division"
-          className="w-2/3 overflow-hidden [mask-image:linear-gradient(to_left,transparent,white_70,white_10,transparent)]"
-          style={{ borderRadius: '0 1rem 1rem 0' }}
-        />
-      </section>
-
-      {/* Facilities Section */}
-      <section className="px-10 py-16 bg-pink-50 text-center rounded-xl shadow-md mx-4 my-10">
-        <h2 className="text-3xl mb-6 text-gray-700 font-bold">High School Facilities</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 mt-8">
-          {facilities.map((facility, index) => (
-            <div
-              key={index}
-              className="bg-white p-6 rounded-xl shadow-lg flex flex-col items-center transition hover:scale-105"
-            >
-              {facility.icon}
-              <p className="mt-4 text-lg font-semibold text-gray-800">{facility.name}</p>
-            </div>
-          ))}
+        {/* Image Section */}
+        <div className="w-full lg:w-3/5">
+          <img
+            src="/common/hero2.jpeg"
+            alt="High School Division"
+            className="w-full h-auto object-cover lg:rounded-l-none rounded-t-xl lg:rounded-r-xl"
+            style={{
+              maskImage:
+                'linear-gradient(to left, transparent 0%, white 40%, white 60%, transparent 100%)',
+              WebkitMaskImage:
+                'linear-gradient(to left, transparent 0%, white 40%, white 60%, transparent 100%)',
+            }}
+          />
         </div>
       </section>
+
+
+      {/* Facilities Section */}
+      <section className="px-10 py-16 bg-yellow-50 text-center rounded-xl shadow-md mx-4 my-10">
+              <h2 className="text-3xl mb-6 text-gray-700 font-bold">High School Facilities</h2>
+      
+              <section className="px-10 py-16 bg-pink-50 text-center rounded-xl shadow-md mx-4 my-10">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4  relative z-10 py-10 max-w-7xl mx-auto">
+                  {facilities.map((feature, index) => (
+                    <Feature key={feature.title} {...feature} index={index} />
+                  ))}
+                </div>
+              </section>
+            </section>
 
 
       {/* Faculty Section */}
@@ -121,7 +153,7 @@ const Page = () => {
               className="bg-white p-4 rounded-xl shadow-md text-center"
             >
               <div className="w-32 h-32 mx-auto rounded-full bg-gray-200 flex items-center justify-center mb-3 overflow-hidden">
-              <img src={student.image} alt="" className='' />
+                <img src={student.image} alt="" className='' />
               </div>
               <h3 className="text-lg font-semibold text-gray-800">{student.name}</h3>
               <p className="text-pink-500 font-medium">{student.achievement}</p>
