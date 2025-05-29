@@ -5,7 +5,6 @@ import Message from '@/components/message';
 import { useEffect } from 'react';
 import { lssWinners } from '@/types/frontend';
 import { CardProps } from '@/types/frontend';
-import { WinnerCard } from '@/components/cards/WinnerCard'
 import { getLSSWinners, getUSSWinners } from '@/lib/achievements/primary';
 import { Feature } from '../common/Features';
 import {
@@ -14,7 +13,6 @@ import {
   FaMusic,
   FaRunning,
   FaBus,
-  FaUser
 } from "react-icons/fa";
 
 const Page = () => {

@@ -18,6 +18,7 @@ const eslintConfig = [
        "@typescript-eslint/explicit-module-boundary-types": "off",
        "@next/next/no-img-element": "off",
        "react/no-unescaped-entities": "off",
+       
     }
   }
 ];

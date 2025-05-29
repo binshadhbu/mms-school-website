@@ -1,5 +1,4 @@
 import Link from "next/link";
-import AnimatedElement from "@/hooks/AnimatedElement";
 
 
 const footer = () => {
@@ -78,9 +77,6 @@ const footer = () => {
         </div>
       </div>
       {/* </div> */}
-
-      {/* All Rights Reserved */}
-
       <div className='pb-15 px-4 mt-5' >
         <h3 className='text-center text-white font-lato text-sm '>@2025 - All Rights Reserved by <Link href="https://adminmart.com/" target="_blank"> MMS Educational Campus</Link></h3>
       </div>

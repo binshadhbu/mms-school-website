@@ -13,9 +13,6 @@ import {
 import { full_APlus } from '@/types/frontend';
 import getSSLC_full from '@/lib/achievements/highschool';
 import { CardProps } from '@/types/frontend';
-import { lato } from '@/fonts';
-// import { FeaturesSectionDemo } from '../common/Features';
-import { FeaturesSectionDemo } from '../common/Features';
 import { Feature } from '../common/Features';
 
 const Page = () => {

@@ -2,9 +2,8 @@
 import React from 'react'
 import { InfiniteGallery } from './infinite_gallery'
 import { useState, useEffect } from 'react'
-import getImages from '@/lib/home/getImages';
 import getGallery from '@/lib/getGallery';
-import { notable_alumni, MessageProps } from "@/types/frontend";
+import { notable_alumni} from "@/types/frontend";
 import get_Teachers_kindergarten from '@/lib/kindergarten';
 
 

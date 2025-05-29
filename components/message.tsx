@@ -40,7 +40,11 @@ const Message = ({ link }: LinkProps) => {
             <p className="text-xl md:text-2xl text-gray-600 font-semibold">{message?.name}</p>
             <p className="text-xs md:text-sm text-gray-500">{message?.position}</p>
             <p className='max-w-3xl text-xs md:text-sm text-gray-500 pt-4 md:pt-5'>
-               <BlockRendererClient content={message?.message}  />
+              {message?.message &&
+              // Assuming BlocksContent is a JSON-parsable object
+              <BlockRendererClient content={typeof message.message === "string" ? JSON.parse(message.message) : message.message} />
+              }
+               
             </p>
           </div>
         </div>

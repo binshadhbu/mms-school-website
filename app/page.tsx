@@ -1,5 +1,4 @@
 import Heading from "@/components/Header/Heading";
-import { Message } from "@/components/message";
 import { Status } from "@/components/status";
 import Results from "@/components/cards/Results";
 import { Hero } from "@/components/Hero";

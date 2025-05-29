@@ -5,7 +5,6 @@ import Image from 'next/image';
 import { lato } from "@/fonts";
 import { useEffect, useState, useRef } from 'react';
 import { StaticImport } from 'next/dist/shared/lib/get-img-props';
-import { gallery, style_gallery } from '@/types/frontend';
 import get_gallery from '@/lib/Gallery/getGallery';
 
 
@@ -34,7 +33,7 @@ const Page = () => {
         // const images: { image: SanityImage }[] = await client.fetch(`*[_type=="gallery_images"]`);
 
         const data = await get_gallery({ link: "galleries" });
-        const sampleImages: { link: string }[] = data.map((item, index) => {
+        const sampleImages: { link: any }[] = data.map((item, index) => {
           return { link: item };
         })
         console.log("formatted images",sampleImages);
@@ -102,7 +101,7 @@ const Page = () => {
             <motion.div className="p-2 hidden md:flex gap-2 items-center justify-center flex-col" style={{ y: invertedY }}>
               {
                 images.left.map((image: string | StaticImport, index: React.Key | null | undefined) => (
-                  <Image src={image} alt={image} className="w-full" height={1080} width={1620} key={index} />
+                  <Image src={image} alt="gallery image" className="w-full" height={1080} width={1620} key={index} />
                 ))
               }
             </motion.div>
